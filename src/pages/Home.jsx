@@ -1,15 +1,13 @@
 import styled from "styled-components";
+import Header from "../components/Header";
+import HomeSlider from "../components/HomeSlider";
 import HomeProducts from "../components/HomeProducts";
-import personIcon from "../images/icon-person.png";
 import Footer from "../components/Footer";
+import personIcon from "../images/icon-person.png";
 import { BsTruck } from "react-icons/bs";
 import { AiOutlineSwap } from "react-icons/ai";
 import { RiShieldStarLine } from "react-icons/ri";
 import { MdSupportAgent } from "react-icons/md";
-import { suggestProducts } from "../data";
-import { useState } from "react";
-import Header from "../components/Header";
-import HomeSlider from "../components/HomeSlider";
 import { COLORS } from "../constants.jsx";
 
 const Container = styled.div`

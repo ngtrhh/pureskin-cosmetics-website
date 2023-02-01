@@ -1,19 +1,20 @@
-import Header from "../components/Header";
 import styled from "styled-components";
-import { Input, Col, Row, DatePicker, ConfigProvider } from "antd";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { Input, DatePicker, Select, ConfigProvider } from "antd";
 import locale from "antd/locale/vi_VN";
-import dayjs from "dayjs";
 import "dayjs/locale/vi";
+import { COLORS } from "../constants";
 
 const MainFrame = styled.div`
-  width: 1024px;
+  width: 60%;
   margin: 60px auto 0px;
-  background-color: wheat;
 `;
 const Title = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: ${COLORS.highlight};
 `;
 const Heading = styled.div`
   font-size: 28px;
@@ -25,7 +26,6 @@ const Label = styled.div`
   font-weight: 500;
   flex: 1;
   color: #3c3434;
-  background-color: red;
 `;
 function Required() {
   return <b style={{ color: "#ee1414" }}>*</b>;
@@ -38,12 +38,18 @@ const Line = styled.hr`
 `;
 const SignUpArea = styled.div`
   width: 720px;
-  margin: 40px auto 0;
+  margin: 40px auto;
 `;
 const Note = styled.div`
   font-size: 12px;
   font-weight: 500;
-  color: #3c3434;
+  color: ${COLORS.mediumgray};
+  margin-left: 4px;
+`;
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
 `;
 const Button = styled.div`
   text-transform: uppercase;
@@ -57,10 +63,36 @@ const Button = styled.div`
   background: #5a4c9f;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 100px;
+  cursor: pointer;
+`;
+const SignIn = styled.div`
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  a {
+    font-weight: 700;
+    color: #5a4c9f;
+    text-decoration: underline;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+  align-items: center;
+`;
+const Col = styled.div`
+  justify-content: left;
+  flex: 2;
 `;
 const onChange = (date, dateString) => {
   console.log(date, dateString);
 };
+const handleChange = (value) => {
+  console.log(`selected ${value}`);
+};
+
 const SignUp = () => {
   return (
     <div>
@@ -68,138 +100,113 @@ const SignUp = () => {
       <MainFrame>
         <Title>
           <Heading>Nhập thông tin thành viên</Heading>
-          <Label style={{ textAlign: "right" }}>
+          <Label style={{ textAlign: "right", color: COLORS.mediumgray }}>
             <Required /> Vui lòng nhập đầy đủ các mục
           </Label>
         </Title>
         <Line />
         <SignUpArea>
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Tên <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
-              <Input.Group>
-                <Row gutter={20}>
-                  <Col flex={1}>
-                    <Input placeholder="Tên" />
-                  </Col>
-                  <Col flex={1}>
-                    <Input placeholder="Họ" />
-                  </Col>
-                </Row>
-              </Input.Group>
+          <Row>
+            <Label>
+              Tên <Required />
+            </Label>
+            <Col>
+              <Row style={{ margin: "0" }}>
+                <div style={{ marginRight: "20px", flex: "1" }}>
+                  <Input placeholder="Tên" size="large" />
+                </div>
+                <div style={{ flex: "1" }}>
+                  <Input placeholder="Họ" size="large" />
+                </div>
+              </Row>
+              <Input.Group></Input.Group>
             </Col>
           </Row>
-
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Số điện thoại <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
-              <Input placeholder="Vui lòng nhập số điện thoại" />
+          <Row>
+            <Label>
+              Số điện thoại <Required />
+            </Label>
+            <Col>
+              <Input placeholder="Vui lòng nhập số điện thoại" size="large" />
             </Col>
           </Row>
-
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Địa chỉ Email <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
-              <Input placeholder="Vui lòng nhập địa chỉ Email" />
+          <Row>
+            <Label>
+              Địa chỉ Email <Required />
+            </Label>
+            <Col>
+              <Input placeholder="Vui lòng nhập địa chỉ Email" size="large" />
             </Col>
           </Row>
-
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Ngày sinh <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
+          <Row>
+            <Label>
+              Ngày sinh <Required />
+            </Label>
+            <Col>
               <ConfigProvider locale={locale}>
                 <DatePicker
                   placeholder="Vui lòng chọn ngày sinh"
                   onChange={onChange}
+                  style={{ width: "100%" }}
+                  size="large"
                 />
               </ConfigProvider>
             </Col>
           </Row>
-
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Giới tính <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
-              <ConfigProvider locale={locale}>
-                <DatePicker
-                  placeholder="Vui lòng chọn ngày sinh"
-                  onChange={onChange}
-                />
-              </ConfigProvider>
+          <Row>
+            <Label>
+              Giới tính <Required />
+            </Label>
+            <Col>
+              <Select
+                placeholder="Vui lòng chọn giới tính"
+                style={{ width: "100%" }}
+                onChange={handleChange}
+                options={[
+                  { value: "female", label: "Nữ" },
+                  { value: "male", label: "Dành cho Nam" },
+                ]}
+                size="large"
+              />
             </Col>
           </Row>
-
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Mật khẩu <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
-              <ConfigProvider locale={locale}>
-                <Input placeholder="Vui lòng nhập 6 - 12 ký tự gồm chữ cái/chữ số"></Input>
-                <Note>
-                  * Mật khẩu tối thiểu 6 - 12 ký tự gồm chữ cái hoa, chữ cái
-                  thường và chữ số
-                </Note>
-              </ConfigProvider>
+          <Row>
+            <Label>
+              Mật khẩu <Required />
+            </Label>
+            <Col>
+              <Input
+                placeholder="Vui lòng nhập 6 - 12 ký tự gồm chữ cái/chữ số"
+                size="large"
+              />
+              <Note>
+                * Mật khẩu tối thiểu 6 - 12 ký tự gồm chữ cái hoa, chữ cái
+                thường và chữ số
+              </Note>
             </Col>
           </Row>
-
-          <Row
-            align="middle"
-            style={{ display: "flex", width: "100%", marginBottom: "40px" }}
-          >
-            <Col flex={1}>
-              <Label>
-                Xác nhận mật khẩu <Required />
-              </Label>
-            </Col>
-            <Col flex={2}>
-              <ConfigProvider locale={locale}>
-                <Input placeholder="Vui lòng nhập lại mật khẩu"></Input>
-              </ConfigProvider>
+          <Row>
+            <Label>
+              Xác nhận mật khẩu <Required />
+            </Label>
+            <Col>
+              <Input placeholder="Vui lòng nhập lại mật khẩu" size="large" />
             </Col>
           </Row>
         </SignUpArea>
+        <Line
+          style={{ background: COLORS.mediumgray, margin: "40px 0 20px" }}
+        />{" "}
+        <Center>
+          <Button>Đăng nhập</Button>
+        </Center>
+        <Center>
+          <SignIn>
+            Bạn đã có tài khoản? Đăng nhập <a href="">tại đây</a>
+          </SignIn>
+        </Center>
       </MainFrame>
+      <Footer />
     </div>
   );
 };
