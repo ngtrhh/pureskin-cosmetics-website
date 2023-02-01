@@ -3,6 +3,7 @@ import Logo from "../components/Logo";
 import background from "../images/footer-background.png";
 import logoSale from "../images/logoSaleNoti.png";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import { COLORS } from "../constants.jsx";
 import { GitHub, Instagram } from "@mui/icons-material";
 import { Input, Button } from "antd";
 
@@ -19,12 +20,12 @@ const Wrapper = styled.div`
   width: 80%;
   margin: auto;
   padding: 60px 0;
-  color: black;
+  color: ${COLORS.text};
   font-size: 15px;
 `;
 const Line = styled.hr`
   margin-top: 60px;
-  background-color: #b1b5bb;
+  background-color: ${COLORS.lightgrey};
   box-shadow: 0px 2px 6px #18274b3d;
 `;
 const Content = styled.div`
@@ -102,7 +103,7 @@ const Footer = () => {
     <Container>
       <Wrapper>
         <Logo />
-        <Line></Line>
+        <Line />
         <Content>
           <Left>
             <Columns>

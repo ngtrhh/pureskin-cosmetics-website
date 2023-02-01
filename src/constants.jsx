@@ -10,8 +10,9 @@ export const COLORS = {
   navSelectedItem: "#DDD3F7",
   pink: "#FEE6F2",
   highlight: "#4E2E68",
-  lightgray: "#B1B5BB",
-  mediumgray: "#79747E",
+  lightgrey: "#b1b5bb",
+  mediumgrey: "#79747E",
+  text: "#3C3434",
 };
 
 export const IMGSRCS = {

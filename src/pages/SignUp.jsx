@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { COLORS } from "../constants";
 import { Input, DatePicker, Select, ConfigProvider } from "antd";
 import locale from "antd/locale/vi_VN";
 import "dayjs/locale/vi";
-import { COLORS } from "../constants";
 
-const MainFrame = styled.div`
+const Body = styled.div`
   width: 60%;
   margin: 60px auto 0px;
 `;
@@ -32,18 +32,18 @@ function Required() {
 }
 
 const Line = styled.hr`
-  background-color: #000000;
+  background-color: ${COLORS.text};
   box-shadow: 0px 1px 6px -4px #18274b52;
   margin-top: 12px;
 `;
-const SignUpArea = styled.div`
+const Main = styled.div`
   width: 720px;
   margin: 40px auto;
 `;
 const Note = styled.div`
   font-size: 12px;
   font-weight: 500;
-  color: ${COLORS.mediumgray};
+  color: ${COLORS.mediumgrey};
   margin-left: 4px;
 `;
 const Center = styled.div`
@@ -75,7 +75,6 @@ const SignIn = styled.div`
     text-decoration: underline;
   }
 `;
-
 const Row = styled.div`
   display: flex;
   width: 100%;
@@ -97,15 +96,15 @@ const SignUp = () => {
   return (
     <div>
       <Header />
-      <MainFrame>
+      <Body>
         <Title>
           <Heading>Nhập thông tin thành viên</Heading>
-          <Label style={{ textAlign: "right", color: COLORS.mediumgray }}>
+          <Label style={{ textAlign: "right", color: COLORS.mediumgrey }}>
             <Required /> Vui lòng nhập đầy đủ các mục
           </Label>
         </Title>
         <Line />
-        <SignUpArea>
+        <Main>
           <Row>
             <Label>
               Tên <Required />
@@ -193,19 +192,19 @@ const SignUp = () => {
               <Input placeholder="Vui lòng nhập lại mật khẩu" size="large" />
             </Col>
           </Row>
-        </SignUpArea>
+        </Main>
         <Line
-          style={{ background: COLORS.mediumgray, margin: "40px 0 20px" }}
+          style={{ background: COLORS.mediumgrey, margin: "40px 0 20px" }}
         />{" "}
         <Center>
-          <Button>Đăng nhập</Button>
+          <Button>Đăng ký</Button>
         </Center>
         <Center>
           <SignIn>
             Bạn đã có tài khoản? Đăng nhập <a href="">tại đây</a>
           </SignIn>
         </Center>
-      </MainFrame>
+      </Body>
       <Footer />
     </div>
   );

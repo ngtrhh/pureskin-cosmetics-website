@@ -16,7 +16,7 @@ const Left = styled.div`
   height: 72px;
   background-color: transparent;
   border-radius: 50%;
-  color: ${COLORS.lightgray};
+  color: ${COLORS.lightgrey};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ const Left = styled.div`
   cursor: pointer;
 
   &:hover {
-    color: ${COLORS.mediumgray};
+    color: ${COLORS.mediumgrey};
   }
   position: absolute;
   top: 50%;
@@ -35,7 +35,7 @@ const Right = styled.div`
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  color: ${COLORS.lightgray};
+  color: ${COLORS.lightgrey};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ const Right = styled.div`
   cursor: pointer;
 
   &:hover {
-    color: ${COLORS.mediumgray};
+    color: ${COLORS.mediumgrey};
   }
   position: absolute;
   top: 50%;
