@@ -1,98 +1,175 @@
-import React from 'react'
-import styled from 'styled-components'
-import Badge from '@mui/material/Badge'
-import { Search, ShoppingBagOutlined } from '@mui/icons-material'
-import { COLORS } from '../constants.jsx'
+import styled from "styled-components";
+import Logo from "./Logo";
+import { COLORS } from "../constants.jsx";
+import { BsCart2 } from "react-icons/bs";
+import { Search } from "@mui/icons-material";
+import { Badge } from "@mui/material";
+import Box from "@mui/material/Box";
 
-const Container = styled.div`
-    height: 60px;
-    background-color: ${COLORS.navbar};
-`
-
-const Wrapper = styled.div`
-    padding: 10px;
-    display: flex;
-`
-
+const NavBar = styled.div`
+  width: 80%;
+  margin: auto;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+`;
 const Left = styled.div`
-    flex: 1;
-`
-
-const SearchContainer = styled.div`
-    border: 1px solid ${COLORS.lightgray};
-    display: flex;
-    align-items: center;
-    padding: 3px 3px 1px 5px;
-`
-
-const SearchInput = styled.input`
-    border: none;
-    margin-right: 3px;
-    flex: 10;
-`
-
+  flex: 1;
+  display: flex;
+  justify-content: left;
+`;
 const Center = styled.div`
-    flex: 1;
-    display: flex;
-    justify-content: center;
-`
-
-// const Logo = styled.image`
-//     background-image: url('${IMGSRCS.logo}')
-//     cursor: pointer;
-// `
-
-const Logo = styled.div`
-    font-size: 24px;
-    font-weight: 600;
-    color: violet;
-    cursor: pointer;
-`
-
+  flex: 2;
+  margin-left: 30px;
+`;
 const Right = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-`
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+`;
+const SearchContainer = styled.div`
+  border: 1px solid ${COLORS.primary};
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 6px 6px 6px 12px;
+`;
+const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  margin-right: 4px;
+  width: 100%;
+  font-size: 14px;
+`;
+const shapeStyles = { bgcolor: "white", width: 40, height: 40 };
+const shapeCircleStyles = { borderRadius: "50%" };
+const circle = (
+  <Box
+    component="span"
+    sx={{ ...shapeStyles, ...shapeCircleStyles }}
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignContent: "center",
+      border: "1px solid #5A4C9F",
+    }}
+  >
+    <div style={{ color: COLORS.primary }}>
+      <BsCart2 size={28} style={{ margin: "4px" }} />
+    </div>
+  </Box>
+);
 const MenuItem = styled.div`
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 30px;
-`
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 30px;
+  color: ${COLORS.primary};
+  position: relative;
+  transition: 0.4s all;
 
+  &:focus {
+    outline: none;
+  }
 
-const Navbar = () => {
+  &:hover {
+    color: ${COLORS.highlight};
+  }
+`;
+
+//Categories
+const Categories = styled.div`
+  width: 100%;
+  background-color: ${COLORS.second};
+`;
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+`;
+const Spacing = styled.div`
+  flex: 1;
+`;
+const Category = styled.div`
+  padding: 12px 15px 10px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px 24px;
+  cursor: pointer;
+  color: ${COLORS.navSelectedText};
+  border-radius: 20px;
+  background-color: ${COLORS.primary};
+  position: relative;
+  transition: 0.4s all;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: ${COLORS.pink};
+    color: ${COLORS.primary};
+    box-shadow: 2px 2px 8px 0px #00000040;
+  }
+`;
+
+const Header = () => {
   return (
     <div>
-        <Container>
-            <Wrapper>
-                <Left>
-                    <SearchContainer>
-                        <SearchInput/>
-                        <Search style={{ color:"gray", fontSize:"20px", flex:"1", cursor: "pointer" }}/>
-                   </SearchContainer>
-                </Left>
-                <Center>
-                    <Logo>PureSKIN</Logo>
-                </Center>
-                <Right>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>LOGIN</MenuItem>
-                    <MenuItem>
-                        <Badge 
-                            badgeContent={4} 
-                            color="primary"
-                            sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }}
-                        >
-                            <ShoppingBagOutlined color="action"/>
-                        </Badge>
-                    </MenuItem>
-                </Right>
-            </Wrapper>
-        </Container>
-    </div>
-  )
-}
+      <NavBar>
+        <Left>
+          <Logo />
+        </Left>
 
-export default Navbar
+        <Center>
+          <SearchContainer>
+            <SearchInput placeholder="Tìm tên sản phẩm..." />
+            <Search
+              style={{
+                color: "gray",
+                fontSize: "20px",
+                cursor: "pointer",
+                marginRight: "4px",
+              }}
+            />
+          </SearchContainer>
+        </Center>
+
+        <Right>
+          <MenuItem>VỀ PURESKIN</MenuItem>
+          <MenuItem>ĐĂNG KÝ</MenuItem>
+          <MenuItem>ĐĂNG NHẬP</MenuItem>
+          <MenuItem style={{ display: "none" }}>TRANG CỦA TÔI</MenuItem>
+          <MenuItem style={{ marginRight: "0" }}>
+            <Badge
+              badgeContent={4}
+              color="primary"
+              overlap="circular"
+              sx={{
+                "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 },
+              }}
+            >
+              {circle}
+            </Badge>
+          </MenuItem>
+        </Right>
+      </NavBar>
+
+      <Categories>
+        <Wrapper>
+          <Spacing />
+          <Category>DEAL SỐC</Category>
+          <Category>DƯỠNG DA</Category>
+          <Category>TRANG ĐIỂM</Category>
+          <Category>CHĂM SÓC TÓC</Category>
+          <Category>CHĂM SÓC CƠ THỂ</Category>
+          <Category>KHÁC</Category>
+          <Spacing />
+        </Wrapper>
+      </Categories>
+    </div>
+  );
+};
+
+export default Header;
