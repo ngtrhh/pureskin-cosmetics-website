@@ -5,7 +5,8 @@ import { BsCart2 } from "react-icons/bs";
 import { Search } from "@mui/icons-material";
 import { Badge } from "@mui/material";
 import Box from "@mui/material/Box";
-
+import { Link } from "react-router-dom";
+import { Dropdown, Space } from "antd";
 const NavBar = styled.div`
   width: 80%;
   margin: auto;
@@ -60,23 +61,21 @@ const circle = (
     </div>
   </Box>
 );
-const MenuItem = styled.div`
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-right: 30px;
-  color: ${COLORS.primary};
-  position: relative;
-  transition: 0.4s all;
+const menu = {
+  fontSize: 15,
+  fontWeight: 500,
+  cursor: "pointer",
+  marginRight: 30,
+  color: COLORS.primary,
+  position: "relative",
+  transition: "0.4s all",
 
-  &:focus {
-    outline: none;
-  }
+  "&:focus": { outline: "none" },
 
-  &:hover {
-    color: ${COLORS.highlight};
-  }
-`;
+  "&:hove": {
+    color: COLORS.highlight,
+  },
+};
 
 //Categories
 const Categories = styled.div`
@@ -113,6 +112,24 @@ const Category = styled.div`
     box-shadow: 2px 2px 8px 0px #00000040;
   }
 `;
+const items = [
+  {
+    label: (
+      <div style={menu}>
+        <Link to="/login">Đăng nhập</Link>
+      </div>
+    ),
+    key: "0",
+  },
+  {
+    label: (
+      <div style={menu}>
+        <Link to="/signup">Đăng ký</Link>
+      </div>
+    ),
+    key: "1",
+  },
+];
 
 const Header = () => {
   return (
@@ -137,11 +154,16 @@ const Header = () => {
         </Center>
 
         <Right>
-          <MenuItem>VỀ PURESKIN</MenuItem>
-          <MenuItem>ĐĂNG KÝ</MenuItem>
-          <MenuItem>ĐĂNG NHẬP</MenuItem>
-          <MenuItem style={{ display: "none" }}>TRANG CỦA TÔI</MenuItem>
-          <MenuItem style={{ marginRight: "0" }}>
+          <div style={menu}>VỀ PURESKIN</div>
+          <div style={menu}>
+            <Link to="/product-list">LIÊN HỆ</Link>
+          </div>
+          <Dropdown menu={{ items }} trigger={["click"]}>
+            <a onClick={(e) => e.preventDefault()}>
+              <Space style={menu}>TRANG CỦA TÔI</Space>
+            </a>
+          </Dropdown>
+          <div style={(menu, { marginRight: "0", cursor: "pointer" })}>
             <Badge
               badgeContent={4}
               color="primary"
@@ -152,7 +174,7 @@ const Header = () => {
             >
               {circle}
             </Badge>
-          </MenuItem>
+          </div>
         </Right>
       </NavBar>
 

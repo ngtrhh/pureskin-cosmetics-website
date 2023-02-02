@@ -78,6 +78,7 @@ const Container = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: fit-content;
+  margin: 0;
   padding: 10px;
 `;
 const SaleContainer = styled.div`
@@ -140,7 +141,7 @@ const OldPrice = styled.div`
   font-weight: 500;
   color: #3c3434;
 `;
-const HomeProductCard = ({ item }) => {
+const Card = ({ item }) => {
   const [showWishlist, setShowWishlist] = useState(1); //1:whistlist 0: no
   const onClick = (e) => {
     setShowWishlist(e);
@@ -192,4 +193,4 @@ const HomeProductCard = ({ item }) => {
   );
 };
 
-export default HomeProductCard;
+export default Card;

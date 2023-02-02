@@ -1,6 +1,6 @@
 import HomeProductCard from "./HomeProductCard";
 import styled from "styled-components";
-import { suggestProducts } from "../data";
+import { suggestProducts } from "../assets/data";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -76,7 +76,7 @@ const HomeProducts = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,

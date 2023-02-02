@@ -5,21 +5,13 @@ import { COLORS } from "../constants";
 import { Input, DatePicker, Select, ConfigProvider } from "antd";
 import locale from "antd/locale/vi_VN";
 import "dayjs/locale/vi";
+import { Breadcrumb } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
+import Title from "../components/Title";
 
 const Body = styled.div`
   width: 60%;
-  margin: 60px auto 0px;
-`;
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: ${COLORS.highlight};
-`;
-const Heading = styled.div`
-  font-size: 28px;
-  font-weight: 700;
-  flex: 1;
+  margin: auto;
 `;
 const Label = styled.div`
   font-size: 15px;
@@ -74,6 +66,12 @@ const SignIn = styled.div`
     color: #5a4c9f;
     text-decoration: underline;
   }
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+  }
 `;
 const Row = styled.div`
   display: flex;
@@ -85,6 +83,9 @@ const Col = styled.div`
   justify-content: left;
   flex: 2;
 `;
+const BreadcrumbContainer = styled.div`
+  margin-top: 20px;
+`;
 const onChange = (date, dateString) => {
   console.log(date, dateString);
 };
@@ -95,14 +96,22 @@ const handleChange = (value) => {
 const SignUp = () => {
   return (
     <div>
-      <Header />
       <Body>
-        <Title>
+        <BreadcrumbContainer style={{ visibility: "hidden" }}>
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <HomeOutlined />
+              <a href="/">Trang chủ</a>
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </BreadcrumbContainer>
+        <Title value="Đăng ký" />
+        {/* <Title>
           <Heading>Nhập thông tin thành viên</Heading>
           <Label style={{ textAlign: "right", color: COLORS.mediumgrey }}>
             <Required /> Vui lòng nhập đầy đủ các mục
           </Label>
-        </Title>
+        </Title> */}
         <Line />
         <Main>
           <Row>
@@ -177,6 +186,7 @@ const SignUp = () => {
               <Input
                 placeholder="Vui lòng nhập 6 - 12 ký tự gồm chữ cái/chữ số"
                 size="large"
+                type="password"
               />
               <Note>
                 * Mật khẩu tối thiểu 6 - 12 ký tự gồm chữ cái hoa, chữ cái
@@ -189,7 +199,11 @@ const SignUp = () => {
               Xác nhận mật khẩu <Required />
             </Label>
             <Col>
-              <Input placeholder="Vui lòng nhập lại mật khẩu" size="large" />
+              <Input
+                placeholder="Vui lòng nhập lại mật khẩu"
+                size="large"
+                type="password"
+              />
             </Col>
           </Row>
         </Main>
@@ -201,7 +215,7 @@ const SignUp = () => {
         </Center>
         <Center>
           <SignIn>
-            Bạn đã có tài khoản? Đăng nhập <a href="">tại đây</a>
+            Bạn đã có tài khoản? Đăng nhập <a href="/login">tại đây</a>
           </SignIn>
         </Center>
       </Body>

@@ -20,7 +20,7 @@ export const suggestProducts = [
     {
         id: 3,
         img: "https://media.hasaki.vn/catalog/product/g/o/google-shopping-kem-chong-nang-make-p-rem-vat-ly-nang-tong-da-50ml-1671779975_img_358x358_843626_fit_center.jpg",
-        title: "Sữa Dưỡng Thể Hatomugi Nâng Tông Da, Chống Nắng 250ml",
+        title: "Kem Chống Nắng Make p:rem Vật Lý Nâng Tông Da 50ml",
         stars: 4.0,
         sale: "288",
         percent: "36",
@@ -89,5 +89,32 @@ export const slider = [
     {
         id: 4,
         img: "https://i.ibb.co/cxHN7K8/Slider1.png",
+    },
+];
+
+export const productImages = [
+    {
+        id: 1,
+        img: "https://media.hasaki.vn/catalog/product/f/a/facebook-dynamic-mat-na-ngu-laneige-duong-am-tang-kha-nang-tu-ve-da-70ml_img_358x358_843626_fit_center.jpg",
+    },
+    {
+        id: 2,
+        img: "https://media.hasaki.vn/catalog/product/m/a/mat-na-ngu-laneige-duong-am-tang-kha-nang-tu-ve-da-70ml-1_img_358x358_843626_fit_center.jpg",
+    },
+    {
+        id: 3,
+        img: "https://media.hasaki.vn/catalog/product/m/a/mat-na-ngu-laneige-duong-am-tang-kha-nang-tu-ve-da-70ml-2_img_358x358_843626_fit_center.jpg",
+    },
+    {
+        id: 4,
+        img: "https://media.hasaki.vn/catalog/product/m/a/mat-na-ngu-laneige-duong-am-tang-kha-nang-tu-ve-da-70ml-3_img_358x358_843626_fit_center.jpg",
+    },
+    {
+        id: 5,
+        img: "https://media.hasaki.vn/catalog/product/m/a/mat-na-ngu-laneige-duong-am-tang-kha-nang-tu-ve-da-70ml_img_358x358_843626_fit_center.jpg",
+    },
+    {
+        id: 6,
+        img: "https://media.hasaki.vn/catalog/product/m/a/mat-na-ngu-laneige-duong-am-tang-kha-nang-tu-ve-da-70ml_doi-mau-2021_img_358x358_843626_fit_center.jpg",
     },
 ];

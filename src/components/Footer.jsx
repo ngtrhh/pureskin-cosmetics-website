@@ -15,6 +15,7 @@ const Container = styled.div`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-position: bottom left;
+  display: block;
 `;
 const Wrapper = styled.div`
   width: 80%;
@@ -82,6 +83,7 @@ const SocialIcon = styled.div`
 const Link = styled.a`
   text-decoration: none;
   color: black;
+  cursor: pointer;
 `;
 
 const Copyright = styled.div`
@@ -111,16 +113,16 @@ const Footer = () => {
                 <Title>VỀ PURESKIN</Title>
                 <List>
                   <Item>
-                    <Link href="">Giới thiệu</Link>
+                    <Link>Giới thiệu</Link>
                   </Item>
                   <Item>
-                    <Link href="">Liên hệ</Link>
+                    <Link>Liên hệ</Link>
                   </Item>
                   <Item>
-                    <Link href="">Tuyển dụng</Link>
+                    <Link>Tuyển dụng</Link>
                   </Item>
                   <Item>
-                    <Link href="">Tin tức</Link>
+                    <Link>Tin tức</Link>
                   </Item>
                 </List>
               </Column>
@@ -128,16 +130,16 @@ const Footer = () => {
                 <Title>CHÍNH SÁCH</Title>
                 <List>
                   <Item>
-                    <Link href="">Chính sách & quy định chung</Link>
+                    <Link>Chính sách & quy định chung</Link>
                   </Item>
                   <Item>
-                    <Link href="">Chính sách giao hàng & thanh toán</Link>
+                    <Link>Chính sách giao hàng & thanh toán</Link>
                   </Item>
                   <Item>
-                    <Link href="">Chính sách mua hàng</Link>
+                    <Link>Chính sách mua hàng</Link>
                   </Item>
                   <Item>
-                    <Link href="">Chính sách trả hàng</Link>
+                    <Link>Chính sách trả hàng</Link>
                   </Item>
                 </List>
               </Column>

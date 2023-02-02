@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Header from "../components/Header";
 import HomeSlider from "../components/HomeSlider";
 import HomeProducts from "../components/HomeProducts";
 import Footer from "../components/Footer";
@@ -50,6 +49,17 @@ const OutlineButton = styled.div`
   position: relative;
   transition: 0.4s all;
 
+  a {
+    text-decoration: none;
+  }
+  
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+  }
+  
   &:focus {
     outline: none;
   }
@@ -71,6 +81,17 @@ const FillButton = styled.div`
   text-align: center;
   position: relative;
   transition: 0.4s all;
+
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+  }
 
   &:focus {
     outline: none;
@@ -127,7 +148,6 @@ const PolicyDesc = styled.div`
 const Home = () => {
   return (
     <Container>
-      <Header />
       <HomeSlider />
       <AccountRow>
         <AccountIcon>
@@ -137,10 +157,14 @@ const Home = () => {
           <p>Hãy đăng nhập để nhận thêm nhiều ưu đãi nhé!</p>
           <ButtonRow>
             <ButtonContainer>
-              <OutlineButton href="">Đăng ký</OutlineButton>
+              <OutlineButton>
+                <a href="/signup">Đăng ký</a>
+              </OutlineButton>
             </ButtonContainer>
             <ButtonContainer>
-              <FillButton href="">Đăng nhập</FillButton>
+              <FillButton>
+                <a href="/login">Đăng nhập</a>
+              </FillButton>
             </ButtonContainer>
           </ButtonRow>
         </AccountContent>

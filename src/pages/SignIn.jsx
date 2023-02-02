@@ -1,26 +1,19 @@
 import styled from "styled-components";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { COLORS } from "../constants";
-import { Divider, FormControl, Input, InputLabel } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import { Divider, FormControl, Input, InputLabel } from "@mui/material";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import { GitHub, Instagram } from "@mui/icons-material";
+import { Instagram } from "@mui/icons-material";
 import { FcGoogle } from "react-icons/fc";
+import { Breadcrumb } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
+import Title from "../components/Title";
+
+const Container = styled.div``;
 const Body = styled.div`
   width: 60%;
-  margin: 60px auto 0px;
-`;
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: ${COLORS.highlight};
-`;
-const Heading = styled.div`
-  font-size: 28px;
-  font-weight: 700;
-  flex: 1;
+  margin: auto;
 `;
 const Line = styled.hr`
   background-color: #000000;
@@ -73,6 +66,12 @@ const SignUp = styled.div`
     color: #5a4c9f;
     text-decoration: underline;
   }
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+  }
 `;
 const SocialContainer = styled.div`
   display: flex;
@@ -90,15 +89,23 @@ const SocialIcon = styled.div`
   box-shadow: 0px 4px 4px #00000040, 0px 8px 24px 0px #18274b14;
   cursor: pointer;
 `;
+const BreadcrumbContainer = styled.div`
+  margin-top: 20px;
+`;
 
 const SignIn = () => {
   return (
-    <div>
-      <Header />
+    <Container>
       <Body>
-        <Title>
-          <Heading>Đăng nhập</Heading>
-        </Title>
+        <BreadcrumbContainer style={{ visibility: "hidden" }}>
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <HomeOutlined />
+              <a href="/">Trang chủ</a>
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </BreadcrumbContainer>
+        <Title value="Đăng nhập" />
         <Line />
         <Main>
           <Row>
@@ -139,13 +146,13 @@ const SignIn = () => {
           </SocialContainer>
           <Center>
             <SignUp>
-              Bạn chưa có tài khoản ? Đăng ký <a href="">tại đây</a>
+              Bạn chưa có tài khoản ? Đăng ký <a href="/signup">tại đây</a>
             </SignUp>
           </Center>
         </Main>
       </Body>
       <Footer />
-    </div>
+    </Container>
   );
 };
 

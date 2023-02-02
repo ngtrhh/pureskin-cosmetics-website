@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { COLORS } from "../constants.jsx";
+import { slider } from "../assets/data.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { slider } from "../data.js";
 
 const Container = styled.div`
   width: 80%;
