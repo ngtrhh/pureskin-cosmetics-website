@@ -1,4 +1,4 @@
-import HomeProductCard from "./HomeProductCard";
+import HomeCard from "./HomeCard";
 import styled from "styled-components";
 import { suggestProducts } from "../assets/data";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
@@ -86,7 +86,7 @@ const HomeProducts = () => {
     <Container>
       <Slider {...settings}>
         {suggestProducts.map((item) => (
-          <HomeProductCard item={item} key={item.id} />
+          <HomeCard item={item} key={item.id} />
         ))}
       </Slider>
     </Container>

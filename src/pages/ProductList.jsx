@@ -1,13 +1,18 @@
 import styled from "styled-components";
+import Helmet from "../components/Helmet";
+import Title from "../components/Title";
 import Footer from "../components/Footer";
 import { COLORS } from "../constants.jsx";
-import { Breadcrumb } from "antd";
+import { Breadcrumb, Select } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
-import Title from "../components/Title";
 import productData from "../assets/products";
-import HomeProductCard from "../components/HomeProductCard";
 import Card from "../components/Card";
 import Row from "react-bootstrap/Row";
+import { useCallback, useEffect, useState } from "react";
+import Category from "../components/Category";
+import { useParams } from "react-router-dom";
+import categoryList from "../assets/categories";
+
 const Container = styled.div``;
 const Body = styled.div`
   width: 80%;
@@ -30,40 +35,58 @@ const CategorySide = styled.div`
   width: 20%;
   float: left;
 `;
-const CategoryList = styled.ul`
-  list-style-type: none;
-  padding-inline-start: 0;
-  padding: 0 16px;
-
-  li {
-    margin: 12px 0;
-    text-transform: uppercase;
-    color: ${COLORS.text};
-    display: block;
-    cursor: pointer;
-    position: relative;
-    transition: 0.4s all;
-    padding: 12px 4px;
-
-    &:hover {
-      color: ${COLORS.highlight};
-      transform: scale(1.1);
-      transition: transform 0.3s ease;
-    }
-  }
-`;
 const List = styled.div`
   width: 80%;
   float: rigth;
   margin: 0 32px;
-  justify-content: space-between;
   display: flex;
-  justify-content: right;
+  justify-content: left;
+  flex-direction: column;
 `;
-
+const SortArea = styled.div`
+  justify-content: right;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
 const ProductList = () => {
+  const id = useParams();
+  //   const currentCategory = categoryList.getCategoryBySlug(id);
+  //   const cateSlug = currentCategory.categorySlug;
+  const productList = productData.getProductsByCateSlug("trang-diem");
+  const [products, setProducts] = useState(productList);
+  //state 1 mặc định
+  const [category, setCategory] = useState(1);
+  function changeCategory(idCate) {
+    //change category when click
+    setCategory(idCate);
+  }
+  const changeProductList = useCallback(() => {
+    let temp = productData.getAllProducts();
+    if (category === "deal-soc") {
+      temp = temp.filter((e) => e.dealSoc === true);
+    } else if (category === "duong-da") {
+      temp = temp.filter((e) => e.categorySlug === "duong-da");
+    } else if (category === "trang-diem") {
+      temp = temp.filter((e) => e.categorySlug === "trang-diem");
+    } else if (category === "cham-soc-toc") {
+      temp = temp.filter((e) => e.categorySlug === "cham-soc-toc");
+    } else if (category === "cham-soc-co-the") {
+      temp = temp.filter((e) => e.categorySlug === "cham-soc-co-the");
+    } else if (category === "khac") {
+      temp = temp.filter((e) => e.categorySlug === "khac");
+    }
+    setProducts(temp);
+  }, [category, setCategory]);
+  useEffect(() => {
+    changeProductList();
+  }, [changeProductList]);
+  console.log(productList);
+
   return (
     <Container>
+      <Helmet title="Đăng ký"></Helmet>
       <Body>
         <BreadcrumbContainer>
           <Breadcrumb>
@@ -81,34 +104,37 @@ const ProductList = () => {
         <Line />
         <Content>
           <CategorySide>
-            <CategoryList>
-              <li>
-                Deal sốc
-                <Line />
-              </li>
-              <li>
-                Dưỡng da <Line />
-              </li>
-              <li>
-                Trang điểm <Line />
-              </li>
-              <li>
-                Chăm sóc tóc <Line />
-              </li>
-              <li>
-                Chăm sóc cơ thể <Line />
-              </li>
-              <li>
-                Khác <Line />
-              </li>
-            </CategoryList>
+            <Category category={changeCategory} />
           </CategorySide>
+
           <List>
-            <Row style={{ display: "flex", flexWrap: "wrap" }}>
-              {productData.getAllProducts().map((item) => (
-                <Card key={item.id} item={item} />
-              ))}
-            </Row>
+            {" "}
+            <SortArea>
+              <Select
+                defaultValue={"Hiển thị theo mặc định"}
+                options={[
+                  { value: "1", label: "Hiển thị theo mặc định" },
+                  { value: "3", label: "Hiển thị theo sản phẩm mới" },
+                  { value: "4", label: "Hiển thị theo giá cao nhất" },
+                  { value: "5", label: "Hiển thị theo giá thấp nhất" },
+                ]}
+                size="large"
+                style={{ width: "30%" }}
+              ></Select>
+            </SortArea>
+            <div style={{ justifyContent: "space-between" }}>
+              <Row
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  width: "100%",
+                }}
+              >
+                {products.map((item) => (
+                  <Card key={item.id} item={item} />
+                ))}
+              </Row>
+            </div>
           </List>
         </Content>
       </Body>

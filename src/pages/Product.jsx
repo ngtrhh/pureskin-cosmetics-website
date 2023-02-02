@@ -9,6 +9,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { productImages } from "../assets/data";
 import { COLORS } from "../constants.jsx";
 import productData from "../assets/products";
+import { useParams } from "react-router-dom";
 
 const SamplePrevArrow = (props) => {
   const { onClick } = props;
@@ -147,7 +148,9 @@ const Product = (props) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
-  //   const product = productData.getProductBySlug(props.match.params.slug);
+  const id = useParams();
+  const relatedProducts = productData.getProducts(8);
+  console.log(id);
   return (
     <div>
       <Body>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Helmet from "../components/Helmet";
 import HomeSlider from "../components/HomeSlider";
 import HomeProducts from "../components/HomeProducts";
 import Footer from "../components/Footer";
@@ -52,14 +53,14 @@ const OutlineButton = styled.div`
   a {
     text-decoration: none;
   }
-  
+
   a,
   a:visited,
   a:hover,
   a:active {
     color: inherit;
   }
-  
+
   &:focus {
     outline: none;
   }
@@ -88,7 +89,7 @@ const FillButton = styled.div`
   a:active {
     color: inherit;
   }
-  
+
   a {
     text-decoration: none;
   }
@@ -148,6 +149,7 @@ const PolicyDesc = styled.div`
 const Home = () => {
   return (
     <Container>
+      <Helmet title="Trang chủ"></Helmet>
       <HomeSlider />
       <AccountRow>
         <AccountIcon>

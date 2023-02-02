@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import categoryList from "../assets/categories";
 import Logo from "./Logo";
 import { COLORS } from "../constants.jsx";
 import { BsCart2 } from "react-icons/bs";
@@ -7,6 +8,7 @@ import { Badge } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { Dropdown, Space } from "antd";
+
 const NavBar = styled.div`
   width: 80%;
   margin: auto;
@@ -96,12 +98,14 @@ const Category = styled.div`
   font-weight: 600;
   margin: 0px 24px;
   cursor: pointer;
-  color: ${COLORS.navSelectedText};
+
   border-radius: 20px;
   background-color: ${COLORS.primary};
   position: relative;
   transition: 0.4s all;
-
+  text-transform: uppercase;
+  text-decoration: none;
+  color: ${COLORS.navSelectedText};
   &:focus {
     outline: none;
   }
@@ -110,6 +114,7 @@ const Category = styled.div`
     background-color: ${COLORS.pink};
     color: ${COLORS.primary};
     box-shadow: 2px 2px 8px 0px #00000040;
+    text-decoration: none;
   }
 `;
 const items = [
@@ -155,9 +160,9 @@ const Header = () => {
 
         <Right>
           <div style={menu}>VỀ PURESKIN</div>
-          <div style={menu}>
-            <Link to="/product-list">LIÊN HỆ</Link>
-          </div>
+          <Link style={{ textDecoration: "none" }} to="/product-list">
+            <div style={menu}>LIÊN HỆ</div>
+          </Link>
           <Dropdown menu={{ items }} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
               <Space style={menu}>TRANG CỦA TÔI</Space>
@@ -181,12 +186,14 @@ const Header = () => {
       <Categories>
         <Wrapper>
           <Spacing />
-          <Category>DEAL SỐC</Category>
-          <Category>DƯỠNG DA</Category>
-          <Category>TRANG ĐIỂM</Category>
-          <Category>CHĂM SÓC TÓC</Category>
-          <Category>CHĂM SÓC CƠ THỂ</Category>
-          <Category>KHÁC</Category>
+          {categoryList.getAllCategories().map((item) => (
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/product-list/${item.categorySlug}}`}
+            >
+              <Category key={item.id}>{item.display}</Category>
+            </Link>
+          ))}
           <Spacing />
         </Wrapper>
       </Categories>

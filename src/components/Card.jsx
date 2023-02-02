@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link, useParams } from "react-router-dom";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { IoBookmarkSharp } from "react-icons/io5";
 import { Rate } from "antd";
@@ -70,15 +71,12 @@ const CardContainer = styled.div`
     transform: translateY(-110%);
     opacity: 1;
   }
-  &:hover {
-    box-shadow: 2px 2px 10px 0px #00000066;
-  }
 `;
 const Container = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: fit-content;
-  margin: 0;
+  margin-bottom: 40px;
   padding: 10px;
 `;
 const SaleContainer = styled.div`
@@ -148,47 +146,56 @@ const Card = ({ item }) => {
   };
   return (
     <Container>
-      <CardContainer>
-        <ImageContainer>
-          <Image src={item.image01}></Image>
-          <Wishlist
-            onClick={() => onClick(0)}
-            style={{ visibility: showWishlist === 0 ? "hidden" : "visible" }}
-          >
-            <BsHeart size={24}></BsHeart>
-          </Wishlist>
-          <Wishlist
-            onClick={() => onClick(1)}
-            style={{
-              visibility: showWishlist === 1 ? "hidden" : "visible",
-              color: "#5A4C9F",
-            }}
-          >
-            <BsHeartFill size={24}></BsHeartFill>
-          </Wishlist>
-        </ImageContainer>
+      <Link
+        to={`/catalog/${item.slug}`}
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          "&:link, &:visited": { color: "inherit" },
+        }}
+      >
+        <CardContainer>
+          <ImageContainer>
+            <Image src={item.image01}></Image>
+            <Wishlist
+              onClick={() => onClick(0)}
+              style={{ visibility: showWishlist === 0 ? "hidden" : "visible" }}
+            >
+              <BsHeart size={24}></BsHeart>
+            </Wishlist>
+            <Wishlist
+              onClick={() => onClick(1)}
+              style={{
+                visibility: showWishlist === 1 ? "hidden" : "visible",
+                color: "#5A4C9F",
+              }}
+            >
+              <BsHeartFill size={24}></BsHeartFill>
+            </Wishlist>
+          </ImageContainer>
 
-        <Body>
-          <Title>
-            <span>{item.title.substring(0, 60)}</span>
-          </Title>
-          <Price>
-            <OldPrice>{item.price}.000 VNĐ</OldPrice>
-            <NewPrice>{item.sale}.000 VNĐ</NewPrice>
-          </Price>
-          <Rating>
-            <Rate allowHalf disabled defaultValue={item.stars} />
-          </Rating>
-        </Body>
+          <Body>
+            <Title>
+              <span>{item.title.substring(0, 60)}</span>
+            </Title>
+            <Price>
+              <OldPrice>{item.price}.000 VNĐ</OldPrice>
+              <NewPrice>{item.sale}.000 VNĐ</NewPrice>
+            </Price>
+            <Rating>
+              <Rate allowHalf disabled defaultValue={item.stars} />
+            </Rating>
+          </Body>
 
-        <ButtonContainer>
-          <Button>Mua hàng</Button>
-        </ButtonContainer>
-        <SaleContainer>
-          <IoBookmarkSharp size={72}></IoBookmarkSharp>
-          <Percent>{item.percent}%</Percent>
-        </SaleContainer>
-      </CardContainer>
+          <ButtonContainer>
+            <Button>Mua hàng</Button>
+          </ButtonContainer>
+          <SaleContainer>
+            <IoBookmarkSharp size={72}></IoBookmarkSharp>
+            <Percent>{item.percent}%</Percent>
+          </SaleContainer>
+        </CardContainer>
+      </Link>
     </Container>
   );
 };

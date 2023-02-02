@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import Header from "../components/Header";
+import Helmet from "../components/Helmet";
+import Title from "../components/Title";
 import Footer from "../components/Footer";
 import { COLORS } from "../constants";
-import { Input, DatePicker, Select, ConfigProvider } from "antd";
+import { Input, DatePicker, Select, ConfigProvider, Breadcrumb } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
 import locale from "antd/locale/vi_VN";
 import "dayjs/locale/vi";
-import { Breadcrumb } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
-import Title from "../components/Title";
 
 const Body = styled.div`
   width: 60%;
@@ -93,9 +92,10 @@ const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
 
-const SignUp = () => {
+const Register = () => {
   return (
     <div>
+      <Helmet title="Đăng ký"></Helmet>
       <Body>
         <BreadcrumbContainer style={{ visibility: "hidden" }}>
           <Breadcrumb>
@@ -224,4 +224,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Register;

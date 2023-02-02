@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Helmet from "../components/Helmet";
+import Title from "../components/Title";
 import Footer from "../components/Footer";
 import { COLORS } from "../constants";
 import { grey } from "@mui/material/colors";
@@ -8,7 +10,6 @@ import { Instagram } from "@mui/icons-material";
 import { FcGoogle } from "react-icons/fc";
 import { Breadcrumb } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
-import Title from "../components/Title";
 
 const Container = styled.div``;
 const Body = styled.div`
@@ -96,6 +97,8 @@ const BreadcrumbContainer = styled.div`
 const SignIn = () => {
   return (
     <Container>
+      {" "}
+      <Helmet title="Đăng nhập"></Helmet>
       <Body>
         <BreadcrumbContainer style={{ visibility: "hidden" }}>
           <Breadcrumb>
