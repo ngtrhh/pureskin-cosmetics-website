@@ -4,6 +4,7 @@ import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { IoBookmarkSharp } from "react-icons/io5";
 import { Rate } from "antd";
 import { useState } from "react";
+import { COLORS } from "../constants";
 
 const ButtonContainer = styled.div`
   opacity: 0;
@@ -98,7 +99,7 @@ const Wishlist = styled.div`
   position: absolute;
   bottom: 4px;
   right: 8px;
-  color: #7e7777;
+  color: ${COLORS.lightgrey};
   cursor: pointer;
 `;
 const Body = styled.div`
@@ -116,7 +117,7 @@ const Price = styled.div`
   margin-bottom: 4px;
 `;
 const Rating = styled.div`
-  color: #fbbc05;
+  color: ${COLORS.review};
   justify-content: space-between;
 `;
 const Percent = styled.div`
@@ -147,7 +148,7 @@ const Card = ({ item }) => {
   return (
     <Container>
       <Link
-        to={`/catalog/${item.slug}`}
+        to={`/product/${item.slug}`}
         style={{
           textDecoration: "none",
           color: "inherit",

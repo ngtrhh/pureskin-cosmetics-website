@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import categoryList from "../assets/categories";
+import categoryList from "../assets/category";
 import Logo from "./Logo";
 import { COLORS } from "../constants.jsx";
 import { BsCart2 } from "react-icons/bs";
@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { Dropdown, Space } from "antd";
 
+/*NavBar styles*/
 const NavBar = styled.div`
   width: 80%;
   margin: auto;
@@ -43,7 +44,6 @@ const SearchInput = styled.input`
   outline: none;
   margin-right: 4px;
   width: 100%;
-  font-size: 14px;
 `;
 const shapeStyles = { bgcolor: "white", width: 40, height: 40 };
 const shapeCircleStyles = { borderRadius: "50%" };
@@ -64,8 +64,8 @@ const circle = (
   </Box>
 );
 const menu = {
-  fontSize: 15,
-  fontWeight: 500,
+  fontSize: 16,
+  fontWeight: 400,
   cursor: "pointer",
   marginRight: 30,
   color: COLORS.primary,
@@ -79,7 +79,7 @@ const menu = {
   },
 };
 
-//Categories
+//*Category styles*/
 const Categories = styled.div`
   width: 100%;
   background-color: ${COLORS.second};
@@ -189,7 +189,7 @@ const Header = () => {
           {categoryList.getAllCategories().map((item) => (
             <Link
               style={{ textDecoration: "none" }}
-              to={`/product-list/${item.categorySlug}}`}
+              to={`/product-list/${item.categorySlug}`}
             >
               <Category key={item.id}>{item.display}</Category>
             </Link>

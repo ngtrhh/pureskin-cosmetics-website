@@ -19,7 +19,7 @@ const App = () => {
             element={<ProductList />}
             exact
           />
-          <Route path="/product-list/:slug" element={<Product />} exact />
+          <Route path="/product/:slug" element={<Product />} exact />
         </Routes>
       </Router>
     </>

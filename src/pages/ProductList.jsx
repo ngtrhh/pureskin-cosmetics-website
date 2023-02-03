@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 import { useCallback, useEffect, useState } from "react";
 import Category from "../components/Category";
 import { useParams } from "react-router-dom";
-import categoryList from "../assets/categories";
+import categoryList from "../assets/category";
 
 const Container = styled.div``;
 const Body = styled.div`
@@ -50,11 +50,9 @@ const SortArea = styled.div`
   display: flex;
   align-items: center;
 `;
-const ProductList = () => {
-  const id = useParams();
-  //   const currentCategory = categoryList.getCategoryBySlug(id);
-  //   const cateSlug = currentCategory.categorySlug;
-  const productList = productData.getProductsByCateSlug("trang-diem");
+const ProductList = (props) => {
+  const { slug } = useParams();
+  const productList = productData.getAllProducts();
   const [products, setProducts] = useState(productList);
   //state 1 mặc định
   const [category, setCategory] = useState(1);
@@ -82,11 +80,11 @@ const ProductList = () => {
   useEffect(() => {
     changeProductList();
   }, [changeProductList]);
-  console.log(productList);
+  console.log(slug, productList);
 
   return (
     <Container>
-      <Helmet title="Đăng ký"></Helmet>
+      <Helmet title="Deal sốc"></Helmet>
       <Body>
         <BreadcrumbContainer>
           <Breadcrumb>

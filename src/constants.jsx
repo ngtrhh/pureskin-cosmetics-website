@@ -13,6 +13,7 @@ export const COLORS = {
   lightgrey: "#b1b5bb",
   mediumgrey: "#79747E",
   text: "#3C3434",
+  review: "#fbbc05",
 };
 
 export const IMGSRCS = {

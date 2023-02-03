@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import categoryList from "../assets/categories";
+import categoryList from "../assets/category";
 import { COLORS } from "../constants.jsx";
 import { Link } from "react-router-dom";
 
@@ -41,7 +41,7 @@ const Category = (props) => {
       {categoryList.getAllCategories().map((item, index) => (
         <Link
           style={{ textDecoration: "none" }}
-          to={`/product-list/${item.id}}`}
+          to={`/product-list/${item.id}`}
           onClick={() => onClick(item.categorySlug)}
         >
           <li key={index}>

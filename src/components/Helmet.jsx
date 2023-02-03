@@ -1,10 +1,10 @@
-import React from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 
 const Helmet = (props) => {
   document.title = "PURESKIN Website - " + props.title;
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 

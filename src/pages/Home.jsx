@@ -3,6 +3,7 @@ import Helmet from "../components/Helmet";
 import HomeSlider from "../components/HomeSlider";
 import HomeProducts from "../components/HomeProducts";
 import Footer from "../components/Footer";
+import productData from "../assets/products";
 import personIcon from "../images/icon-person.png";
 import { BsTruck } from "react-icons/bs";
 import { AiOutlineSwap } from "react-icons/ai";
@@ -147,6 +148,8 @@ const PolicyDesc = styled.div`
   font-weight: 400;
 `;
 const Home = () => {
+  const list = productData.getProducts(8);
+
   return (
     <Container>
       <Helmet title="Trang chủ"></Helmet>
@@ -172,11 +175,11 @@ const Home = () => {
         </AccountContent>
       </AccountRow>
       <Heading>Gợi ý cho bạn</Heading>
-      <HomeProducts />
+      <HomeProducts list={list}></HomeProducts>
       <Heading>Deal sốc tháng này</Heading>
-      <HomeProducts />
+      <HomeProducts list={list}></HomeProducts>
       <Heading>Sản phẩm mới</Heading>
-      <HomeProducts />
+      <HomeProducts list={list}></HomeProducts>
       <PolicyRow>
         <Policy>
           <PolicyIcon>

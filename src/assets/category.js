@@ -31,9 +31,8 @@ const categories = [
     }
 ]
 const getAllCategories = () => categories
-const getCategoryBySlug = (slug) => categories.filter(e => e.categorySlug === slug)
 const categoryList = {
-    getCategoryBySlug,getAllCategories
+   getAllCategories
 }
 
 export default categoryList

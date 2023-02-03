@@ -1,6 +1,5 @@
 import HomeCard from "./HomeCard";
 import styled from "styled-components";
-import { suggestProducts } from "../assets/data";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -72,7 +71,7 @@ const SampleNextArrow = (props) => {
     </Left>
   );
 };
-const HomeProducts = () => {
+const HomeProducts = (props) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -85,7 +84,7 @@ const HomeProducts = () => {
   return (
     <Container>
       <Slider {...settings}>
-        {suggestProducts.map((item) => (
+        {props.list.map((item) => (
           <HomeCard item={item} key={item.id} />
         ))}
       </Slider>
