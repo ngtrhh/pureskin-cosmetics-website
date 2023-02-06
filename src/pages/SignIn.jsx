@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
 import Title from "../components/Title";
-import Footer from "../components/Footer";
 import { COLORS } from "../constants";
 import { grey } from "@mui/material/colors";
 import { Divider, FormControl, Input, InputLabel } from "@mui/material";
@@ -154,7 +153,6 @@ const SignIn = () => {
           </Center>
         </Main>
       </Body>
-      <Footer />
     </Container>
   );
 };

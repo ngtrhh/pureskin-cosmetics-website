@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import { Breadcrumb } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 import { COLORS } from "../constants.jsx";
-import productData from "../assets/products";
+import productData from "../assets/data/products";
 import { useParams } from "react-router-dom";
-import HomeProducts from "../components/HomeProducts";
+import ProductSlider from "../components/ProductSlider";
 import ProductView from "../components/ProductView";
 
 const Body = styled.div`
@@ -57,7 +57,7 @@ const Product = (props) => {
         <ProductView product={product} />
       </Body>
       <Heading>Có thể bạn sẽ thích</Heading>
-      <HomeProducts list={list}></HomeProducts>
+      <ProductSlider list={list}></ProductSlider>
       <Footer />
     </div>
   );

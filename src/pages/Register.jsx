@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
 import Title from "../components/Title";
-import Footer from "../components/Footer";
 import { COLORS } from "../constants";
 import { Input, DatePicker, Select, ConfigProvider, Breadcrumb } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
@@ -219,7 +218,6 @@ const Register = () => {
           </SignIn>
         </Center>
       </Body>
-      <Footer />
     </div>
   );
 };

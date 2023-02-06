@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
 import Title from "../components/Title";
-import Footer from "../components/Footer";
 import { COLORS } from "../constants.jsx";
 import { Breadcrumb, Select } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
-import productData from "../assets/products";
+import productData from "../assets/data/products";
 import Card from "../components/Card";
 import Row from "react-bootstrap/Row";
 import { useCallback, useEffect, useState } from "react";
 import Category from "../components/Category";
 import { useParams } from "react-router-dom";
-import categoryList from "../assets/category";
+import categoryList from "../assets/data/category";
 
 const Container = styled.div``;
 const Body = styled.div`
@@ -136,7 +135,6 @@ const ProductList = (props) => {
           </List>
         </Content>
       </Body>
-      <Footer />
     </Container>
   );
 };

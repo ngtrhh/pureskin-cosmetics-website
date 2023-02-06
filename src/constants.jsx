@@ -1,7 +1,6 @@
 export const COLORS = {
   test: "#000",
   BG: "#FFFCFC",
-  border: "lightgray",
   primary: "#5A4C9F",
   second: "#EFC8E2",
   third: "#ddd3f7",
@@ -14,9 +13,4 @@ export const COLORS = {
   mediumgrey: "#79747E",
   text: "#3C3434",
   review: "#fbbc05",
-};
-
-export const IMGSRCS = {
-  logo: "",
-  slider1: "",
 };

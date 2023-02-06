@@ -141,7 +141,7 @@ const OldPrice = styled.div`
   color: #3c3434;
 `;
 const Card = ({ item }) => {
-  const [showWishlist, setShowWishlist] = useState(1); //1:whistlist 0: no
+  const [showWishlist, setShowWishlist] = useState(1); 
   const onClick = (e) => {
     setShowWishlist(e);
   };

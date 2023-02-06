@@ -1,0 +1,21 @@
+.section {
+  margin-bottom: 40px;
+
+  @include mobile {
+    margin-bottom: 20px;
+  }
+
+  & > * ~ * {
+    margin-top: 70px; //con va ngang hang
+  }
+
+  &__title {
+    width: 1228px;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.8rem;
+    text-align: left;
+    color: $highlight;
+  }
+}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import categoryList from "../assets/category";
+import categoryList from "../assets/data/category";
 import { COLORS } from "../constants.jsx";
 import { Link } from "react-router-dom";
 
@@ -43,8 +43,9 @@ const Category = (props) => {
           style={{ textDecoration: "none" }}
           to={`/product-list/${item.id}`}
           onClick={() => onClick(item.categorySlug)}
+          key={index}
         >
-          <li key={index}>
+          <li>
             {item.display}
             <Line />
           </li>
