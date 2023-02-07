@@ -5,11 +5,14 @@
 @import "./components/header";
 @import "./components/footer";
 @import "./components/slider";
-@import "./components/section";
-@import "./components/account";
-@import "./components/policy";
+@import "./components/Home/account";
+@import "./components/Home/policy";
+@import "./components/Home/product-mobile";
 @import "./components/cart";
-@import "./components/productSlider";
-@import "./components/productList";
+
+@import "./components/section";
+@import "./components/product-slider";
 @import "./components/login";
 @import "./components/register";
+@import "./components/ProductList/product-list";
+@import "./components/ProductList/category";

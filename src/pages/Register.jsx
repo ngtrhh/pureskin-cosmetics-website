@@ -1,9 +1,9 @@
 import Helmet from "../components/Helmet";
 import { Link } from "react-router-dom";
 import { Input, DatePicker, Select, ConfigProvider, Breadcrumb } from "antd";
+import { HomeIcon } from "../components/Icons/index";
 import locale from "antd/locale/vi_VN";
 import "dayjs/locale/vi";
-import { HomeIcon } from "../components/Icons/index";
 
 const Register = () => {
   const onChange = (date, dateString) => {

@@ -15,11 +15,6 @@
     padding: 0 10px;
   }
 
-  &.active {
-    height: $nav-bar-height;
-    background-color: $header-scroll-color;
-  }
-
   .container {
     width: 80%;
     height: 100%;
@@ -138,6 +133,7 @@
 
       &__cart {
         transition: 0.4s all;
+
         &:hover {
           transform: scale(1.1);
           transition: transform 0.3s ease;
@@ -160,6 +156,12 @@
 
     @include mobile {
       flex: 1;
+    }
+
+    &.active {
+      flex: 1;
+      display: block;
+      @include flex(center, left);
     }
   }
 
@@ -248,6 +250,90 @@
       &.active {
         transform: translateX(0);
       }
+    }
+  }
+}
+
+.scroll {
+  height: $nav-bar-height;
+  background-color: $header-scroll-bg;
+  color: $primary-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+
+  &__container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+  }
+
+  // &__mobile-toggle {
+  //   flex: 1;
+  //   @include flex(center, left);
+  //   color: $primary-color;
+  //   cursor: pointer;
+  // }
+
+  // &__left {
+  //   width: 20%;
+  //   height: 100vh;
+  //   position: absolute;
+  //   left: 0;
+  //   top: $nav-bar-height;
+  //   transform: translateX(-100%);
+  //   transition: transform 0.5s ease;
+  //   background-image: linear-gradient(white, $main-bg, $second-color);
+  //   padding-right: 10px;
+
+  //   &.active {
+  //     transform: translateX(0);
+  //   }
+  // }
+
+  &__logo {
+    flex: 5;
+    @include flex(center, left);
+  }
+
+  &__menu {
+    flex: 6;
+    flex-direction: row;
+    @include flex(center, center);
+
+    &__search {
+      flex: 8;
+
+      &__container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        &__input {
+          border: none;
+          outline: none;
+          margin: 12px 8px 8px 12px;
+          width: 100%;
+          background-color: transparent;
+          font-size: 1.5rem;
+        }
+
+        &__icon {
+          color: $mediumgrey;
+          margin: 4px 8px 0 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__item {
+      flex: 1;
+      color: $primary-color;
+      @include flex(flex-end, right);
+      cursor: pointer;
     }
   }
 }

@@ -265,10 +265,13 @@ const products = [
 
 const getAllProducts = () => products
 
-const getProductBySlug= (slug) => productData.getAllProducts().find((element) => element.slug === slug)
+const getProductBySlug = (slug) => productData.getAllProducts().find((element) => element.slug === slug)
 
-const getProductsByCateSlug= (cate) => productData.getAllProducts().find((element) => element.categorySlug === cate)
-    
+const getProductsByCateSlug = (cate) =>
+productData
+  .getAllProducts()
+        .filter((element) => element.categorySlug === cate);
+      
 const getProducts = (count) => {
     const max = products.length - count
     const min = 0

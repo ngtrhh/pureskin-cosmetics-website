@@ -6,7 +6,7 @@ import ProductList from "../components/Home/ProductList";
 import ProductSlider from "../components/ProductSlider";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 
-import productData from "../assets/data/products";
+import productData from "../assets/data/product";
 import sliderData from "../assets/data/slider";
 
 const Home = () => {

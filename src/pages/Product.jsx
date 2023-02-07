@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import { Breadcrumb } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 import { COLORS } from "../constants.jsx";
-import productData from "../assets/data/products";
+import productData from "../assets/data/product";
 import { useParams } from "react-router-dom";
 import ProductSlider from "../components/ProductSlider";
 import ProductView from "../components/ProductView";

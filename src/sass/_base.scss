@@ -44,6 +44,16 @@ a {
   background-color: $lightgrey;
   box-shadow: 0px 1px 6px -4px #18274b33;
   margin-top: 12px;
+
+  &.responsive {
+    @include tab-land {
+      margin: 0 20px 0;
+    }
+
+    @include mobile {
+      margin: 0 10px 0;
+    }
+  }
 }
 
 .title {
@@ -53,12 +63,12 @@ a {
   color: $highlight;
   margin-top: 40px;
 
-  @include tab-port {
-    margin-top: 20px;
+  @include tab-land {
+    margin: 20px 20px 0;
   }
 
   @include mobile {
-    margin-top: 10px;
+    margin: 10px 10px 0;
   }
 
   span {
@@ -67,16 +77,16 @@ a {
     flex: 1;
     text-transform: uppercase;
 
-    @include tab-port {
+    @include tab-land {
       font-weight: 500;
     }
   }
 }
 
 .breadcrumb {
-  margin-top: 20px;
+  margin: 20px 20px 0;
 
   @include mobile {
-    margin-top: 4px;
+    margin: 4px 10px 0;
   }
 }

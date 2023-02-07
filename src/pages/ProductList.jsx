@@ -1,141 +1,115 @@
-import styled from "styled-components";
 import Helmet from "../components/Helmet";
-import { COLORS } from "../constants.jsx";
 import { Breadcrumb, Select } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
-import productData from "../assets/data/products";
-import Card from "../components/Card";
+import { Link } from "react-router-dom";
+import productData from "../assets/data/product";
+import categoryData from "../assets/data/category";
+import Card from "../components/ProductList/Card";
 import Row from "react-bootstrap/Row";
 import { useCallback, useEffect, useState } from "react";
-import Category from "../components/Category";
+import Category from "../components/ProductList/Category";
 import { useParams } from "react-router-dom";
+import { HomeIcon } from "../components/Icons/index";
 
-const Container = styled.div``;
-const Body = styled.div`
-  width: 80%;
-  margin: auto;
-`;
-const BreadcrumbContainer = styled.div`
-  margin-top: 20px;
-`;
-const Line = styled.hr`
-  background-color: ${COLORS.mediumgrey};
-  box-shadow: 0px 1px 6px -4px #18274b52;
-  margin-top: 12px;
-`;
-const Content = styled.div`
-  width: 100%;
-  display: flex;
-  padding: 20px 0;
-`;
-const CategorySide = styled.div`
-  width: 20%;
-  float: left;
-`;
-const List = styled.div`
-  width: 80%;
-  float: rigth;
-  margin: 0 32px;
-  display: flex;
-  justify-content: left;
-  flex-direction: column;
-`;
-const SortArea = styled.div`
-  justify-content: right;
-  margin-bottom: 20px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-`;
-const ProductList = (props) => {
-  const { slug } = useParams();
-  const productList = productData.getAllProducts();
+const ProductList = () => {
+  let slug = useParams().categorySlug;
+  const productList = productData.getProductsByCateSlug(slug);
+  const category = categoryData.getCategoryBySlug(slug);
   const [products, setProducts] = useState(productList);
+
   //state 1 mặc định
-  const [category, setCategory] = useState(1);
+  const [cateSlug, setCategory] = useState("deal-soc");
+
   function changeCategory(idCate) {
     //change category when click
     setCategory(idCate);
   }
+
   const changeProductList = useCallback(() => {
     let temp = productData.getAllProducts();
-    if (category === "deal-soc") {
+    if (cateSlug === "deal-soc") {
       temp = temp.filter((e) => e.dealSoc === true);
-    } else if (category === "duong-da") {
+    } else if (cateSlug === "duong-da") {
       temp = temp.filter((e) => e.categorySlug === "duong-da");
-    } else if (category === "trang-diem") {
+    } else if (cateSlug === "trang-diem") {
       temp = temp.filter((e) => e.categorySlug === "trang-diem");
-    } else if (category === "cham-soc-toc") {
+    } else if (cateSlug === "cham-soc-toc") {
       temp = temp.filter((e) => e.categorySlug === "cham-soc-toc");
-    } else if (category === "cham-soc-co-the") {
+    } else if (cateSlug === "cham-soc-co-the") {
       temp = temp.filter((e) => e.categorySlug === "cham-soc-co-the");
-    } else if (category === "khac") {
+    } else if (cateSlug === "khac") {
       temp = temp.filter((e) => e.categorySlug === "khac");
     }
     setProducts(temp);
-  }, [category, setCategory]);
+  }, [cateSlug, setCategory]);
+
   useEffect(() => {
     changeProductList();
   }, [changeProductList]);
-  console.log(slug, productList);
 
   return (
-    <Container>
-      <Helmet title="Deal sốc"></Helmet>
-      <Body>
-        <BreadcrumbContainer>
+    <Helmet title={category.display}>
+      <div className="product-list">
+        {/* Breadcrumb */}
+        <div className="breadcrumb">
           <Breadcrumb>
             <Breadcrumb.Item>
-              <HomeOutlined />
-              <a href="/">Trang chủ</a>
+              <HomeIcon />
+              <Link to="/">Trang chủ</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <a href="/product-list">Sản phẩm</a>
+              <Link
+                to="/product-list/deal-soc"
+                onClick={() => {
+                  setCategory("deal-soc");
+                }}
+              >
+                Sản phẩm
+              </Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item>Deal sốc</Breadcrumb.Item>
+            <Breadcrumb.Item>{category.display}</Breadcrumb.Item>
           </Breadcrumb>
-        </BreadcrumbContainer>
-        <div className="title">
-          <span>Deal Sốc</span>
         </div>
-        <Line />
-        <Content>
-          <CategorySide>
+        {/* End breadcrumb */}
+        {/* Title */}
+        <div className="title">
+          <span>{category.display}</span>
+        </div>
+        <hr className="line responsive" />
+        {/* End title */}
+        <div className="container">
+          <div className="product-list__category">
             <Category category={changeCategory} />
-          </CategorySide>
-
-          <List>
-            {" "}
-            <SortArea>
+          </div>
+          <div className="product-list__area">
+            <div className="product-list__area__sort">
               <Select
+                className="product-list__area__sort__select"
                 defaultValue={"Hiển thị theo mặc định"}
+                size="large"
                 options={[
                   { value: "1", label: "Hiển thị theo mặc định" },
                   { value: "3", label: "Hiển thị theo sản phẩm mới" },
                   { value: "4", label: "Hiển thị theo giá cao nhất" },
                   { value: "5", label: "Hiển thị theo giá thấp nhất" },
                 ]}
-                size="large"
-                style={{ width: "30%" }}
               ></Select>
-            </SortArea>
-            <div style={{ justifyContent: "space-between" }}>
-              <Row
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  width: "100%",
-                }}
-              >
+            </div>
+            <div className="product-list__area__wrapper">
+              <Row className="product-list__area__wrapper__row">
                 {products.map((item) => (
-                  <Card key={item.id} item={item} />
+                  <div
+                    className="product-list__area__wrapper__row__item"
+                    key={item.id}
+                  >
+                    <Card item={item} style={{ margin: 0 }} />
+                  </div>
                 ))}
               </Row>
             </div>
-          </List>
-        </Content>
-      </Body>
-    </Container>
+          </div>
+        </div>
+      </div>
+    </Helmet>
   );
 };
 
