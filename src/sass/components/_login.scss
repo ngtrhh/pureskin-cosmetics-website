@@ -15,7 +15,7 @@
     padding: 0 10px;
   }
 
-  .container {
+  .main {
     width: 48%;
     margin: 28px auto;
 
@@ -33,7 +33,7 @@
     }
   }
 
-  &__row {
+  &__row:first-child {
     margin-bottom: 28px;
   }
 
@@ -75,7 +75,7 @@
     @include flex(center, center);
     margin: 40px 0;
 
-    &__register {
+    &__navigation {
       color: $txt-second-color;
       a {
         font-weight: 700;
@@ -83,6 +83,10 @@
         text-decoration: underline;
       }
     }
+  }
+
+  &__center:first-child {
+    margin-top: 48px;
   }
 
   &__btn {

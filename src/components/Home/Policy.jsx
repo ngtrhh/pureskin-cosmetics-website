@@ -1,4 +1,3 @@
-import React from "react";
 import { policy } from "../../assets/data/policy";
 
 const Policy = () => {

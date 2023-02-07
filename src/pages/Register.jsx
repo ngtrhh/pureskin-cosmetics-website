@@ -1,174 +1,109 @@
-import styled from "styled-components";
 import Helmet from "../components/Helmet";
-import { COLORS } from "../constants";
+import { Link } from "react-router-dom";
 import { Input, DatePicker, Select, ConfigProvider, Breadcrumb } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
 import locale from "antd/locale/vi_VN";
 import "dayjs/locale/vi";
-
-const Body = styled.div`
-  width: 60%;
-  margin: auto;
-`;
-const Label = styled.div`
-  font-size: 15px;
-  font-weight: 500;
-  flex: 1;
-  color: #3c3434;
-`;
-function Required() {
-  return <b style={{ color: "#ee1414" }}>*</b>;
-}
-
-const Line = styled.hr`
-  background-color: ${COLORS.text};
-  box-shadow: 0px 1px 6px -4px #18274b52;
-  margin-top: 12px;
-`;
-const Main = styled.div`
-  width: 720px;
-  margin: 40px auto;
-`;
-const Note = styled.div`
-  font-size: 12px;
-  font-weight: 500;
-  color: ${COLORS.mediumgrey};
-  margin-left: 4px;
-`;
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-`;
-const Button = styled.div`
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 240px;
-  height: 44px;
-  color: #ffffff;
-  background: #5a4c9f;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 100px;
-  cursor: pointer;
-`;
-const SignIn = styled.div`
-  color: black;
-  font-size: 16px;
-  font-weight: 500;
-  a {
-    font-weight: 700;
-    color: #5a4c9f;
-    text-decoration: underline;
-  }
-  a,
-  a:visited,
-  a:hover,
-  a:active {
-    color: inherit;
-  }
-`;
-const Row = styled.div`
-  display: flex;
-  width: 100%;
-  margin-top: 40px;
-  align-items: center;
-`;
-const Col = styled.div`
-  justify-content: left;
-  flex: 2;
-`;
-const BreadcrumbContainer = styled.div`
-  margin-top: 20px;
-`;
-const onChange = (date, dateString) => {
-  console.log(date, dateString);
-};
-const handleChange = (value) => {
-  console.log(`selected ${value}`);
-};
+import { HomeIcon } from "../components/Icons/index";
 
 const Register = () => {
+  const onChange = (date, dateString) => {
+    console.log(date, dateString);
+  };
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+
+  function Required() {
+    return <b style={{ color: "#ee1414" }}>*</b>;
+  }
+
   return (
-    <div>
-      <Helmet title="Đăng ký"></Helmet>
-      <Body>
-        <BreadcrumbContainer style={{ visibility: "hidden" }}>
+    <Helmet title="Đăng ký">
+      <div className="register">
+        {/* Breadcrumb */}
+        <div className="breadcrumb" style={{ visibility: "hidden" }}>
           <Breadcrumb>
             <Breadcrumb.Item>
-              <HomeOutlined />
+              <HomeIcon />
               <a href="/">Trang chủ</a>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </BreadcrumbContainer>
+        </div>
+        {/* End breadcrumb */}
+        {/* Title */}
         <div className="title">
           <span>Đăng ký</span>
         </div>
-        {/* <Title>
-          <Heading>Nhập thông tin thành viên</Heading>
-          <Label style={{ textAlign: "right", color: COLORS.mediumgrey }}>
-            <Required /> Vui lòng nhập đầy đủ các mục
-          </Label>
-        </Title> */}
-        <Line />
-        <Main>
-          <Row>
-            <Label>
+        {/* <Note style={{ textAlign: "right", color: COLORS.mediumgrey }}>
+          Vui lòng nhập đầy đủ các mục <Required />
+        </Note> */}
+        <hr className="line" />
+        {/* End title */}
+        {/* Register area */}
+        <div className="main">
+          {/* Name*/}
+          <div className="register__row">
+            <div className="register__row__label">
               Tên <Required />
-            </Label>
-            <Col>
-              <Row style={{ margin: "0" }}>
-                <div style={{ marginRight: "20px", flex: "1" }}>
+            </div>
+            <div className="register__row__col">
+              <div className="register__row two-cols">
+                <div className="two-cols__item">
                   <Input placeholder="Tên" size="large" />
                 </div>
-                <div style={{ flex: "1" }}>
+                <div className="two-cols__item">
                   <Input placeholder="Họ" size="large" />
                 </div>
-              </Row>
-              <Input.Group></Input.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Label>
+              </div>
+            </div>
+          </div>
+          {/* End name*/}
+          {/* Phone*/}
+          <div className="register__row">
+            <div className="register__row__label">
               Số điện thoại <Required />
-            </Label>
-            <Col>
+            </div>
+            <div className="register__row__col">
               <Input placeholder="Vui lòng nhập số điện thoại" size="large" />
-            </Col>
-          </Row>
-          <Row>
-            <Label>
+            </div>
+          </div>
+          {/* End phone*/}
+          {/* Email*/}
+          <div className="register__row">
+            <div className="register__row__label">
               Địa chỉ Email <Required />
-            </Label>
-            <Col>
+            </div>
+            <div className="register__row__col">
               <Input placeholder="Vui lòng nhập địa chỉ Email" size="large" />
-            </Col>
-          </Row>
-          <Row>
-            <Label>
+            </div>
+          </div>
+          {/* End email*/}
+          {/* Birthday */}
+          <div className="register__row">
+            <div className="register__row__label">
               Ngày sinh <Required />
-            </Label>
-            <Col>
+            </div>
+            <div className="register__row__col">
               <ConfigProvider locale={locale}>
                 <DatePicker
                   placeholder="Vui lòng chọn ngày sinh"
                   onChange={onChange}
-                  style={{ width: "100%" }}
+                  className="register__row__input"
                   size="large"
                 />
               </ConfigProvider>
-            </Col>
-          </Row>
-          <Row>
-            <Label>
+            </div>
+          </div>
+          {/* End birthday */}
+          {/* Gender */}
+          <div className="register__row">
+            <div className="register__row__label">
               Giới tính <Required />
-            </Label>
-            <Col>
+            </div>
+            <div className="register__row__col">
               <Select
                 placeholder="Vui lòng chọn giới tính"
-                style={{ width: "100%" }}
+                className="register__row__input"
                 onChange={handleChange}
                 options={[
                   { value: "female", label: "Nữ" },
@@ -176,50 +111,54 @@ const Register = () => {
                 ]}
                 size="large"
               />
-            </Col>
-          </Row>
-          <Row>
-            <Label>
+            </div>
+          </div>
+          {/* End gender */}
+          {/* Password */}
+          <div className="register__row">
+            <div className="register__row__label">
               Mật khẩu <Required />
-            </Label>
-            <Col>
+            </div>
+            <div className="register__row__col">
               <Input
                 placeholder="Vui lòng nhập 6 - 12 ký tự gồm chữ cái/chữ số"
                 size="large"
                 type="password"
               />
-              <Note>
+              <div className="register__row__note">
                 * Mật khẩu tối thiểu 6 - 12 ký tự gồm chữ cái hoa, chữ cái
                 thường và chữ số
-              </Note>
-            </Col>
-          </Row>
-          <Row>
-            <Label>
+              </div>
+            </div>
+          </div>
+          {/* End password */}
+          {/* Confirm password */}
+          <div className="register__row">
+            <div className="register__row__label">
               Xác nhận mật khẩu <Required />
-            </Label>
-            <Col>
+            </div>
+            <div className="register__row__col">
               <Input
                 placeholder="Vui lòng nhập lại mật khẩu"
                 size="large"
                 type="password"
               />
-            </Col>
-          </Row>
-        </Main>
-        <Line
-          style={{ background: COLORS.mediumgrey, margin: "40px 0 20px" }}
-        />{" "}
-        <Center>
-          <Button>Đăng ký</Button>
-        </Center>
-        <Center>
-          <SignIn>
-            Bạn đã có tài khoản? Đăng nhập <a href="/login">tại đây</a>
-          </SignIn>
-        </Center>
-      </Body>
-    </div>
+            </div>
+          </div>
+          {/* End confirm password */}
+        </div>
+        <hr className="line" style={{ margin: "40px 0 20px" }} />
+        <div className="login__center">
+          <div className="login__btn">Đăng ký</div>
+        </div>
+        <div className="login__center">
+          <div className="login__center__navigation">
+            Bạn đã có tài khoản? Đăng nhập <Link to="/login">tại đây</Link>
+          </div>
+        </div>
+        {/* End register area */}
+      </div>
+    </Helmet>
   );
 };
 

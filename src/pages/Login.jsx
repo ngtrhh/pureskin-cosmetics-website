@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Helmet from "../components/Helmet";
 import { Link } from "react-router-dom";
 import { grey } from "@mui/material/colors";
@@ -15,6 +14,7 @@ const Login = () => {
   return (
     <Helmet title="Đăng nhập">
       <div className="login">
+        {/* Breadcrumb */}
         <div className="breadcrumb" style={{ visibility: "hidden" }}>
           <Breadcrumb>
             <Breadcrumb.Item>
@@ -23,11 +23,15 @@ const Login = () => {
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
+        {/* End breadcrumb */}
+        {/* Title */}
         <div className="title">
           <span>Đăng nhập</span>
         </div>
         <hr className="line" />
-        <div className="container">
+        {/* End title */}
+        {/* Login area */}
+        <div className="main">
           <div className="login__row">
             <FormControl fullWidth variant="standard">
               <InputLabel
@@ -39,7 +43,7 @@ const Login = () => {
               <Input inputProps={{ style: { fontSize: "1.6rem" } }} />
             </FormControl>
           </div>
-          <div className="login__row" style={{ marginBottom: 0 }}>
+          <div className="login__row">
             <FormControl fullWidth variant="standard">
               <InputLabel
                 htmlFor="standard"
@@ -56,7 +60,7 @@ const Login = () => {
           <div className="login__forgot">
             <Link to="/login">Quên mật khẩu?</Link>
           </div>
-          <div className="login__center" style={{ marginTop: "48px" }}>
+          <div className="login__center">
             <div className="login__btn">Đăng nhập</div>
           </div>
           <Divider plain>
@@ -74,12 +78,13 @@ const Login = () => {
             </div>
           </div>
           <div className="login__center">
-            <div className="login__center__register">
+            <div className="login__center__navigation">
               Bạn chưa có tài khoản ? Đăng ký{" "}
               <Link to="/register">tại đây</Link>
             </div>
           </div>
         </div>
+        {/* End login area */}
       </div>
     </Helmet>
   );

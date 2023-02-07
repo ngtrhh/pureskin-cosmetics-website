@@ -67,7 +67,7 @@ const HomeSlider = (props) => {
     <div className="home-slider">
       <Slider {...settings}>
         {props.data.map((item) => (
-          <img key={item.id} src={item.img} />
+          <img key={item.id} src={item.img} alt="" />
         ))}
       </Slider>
     </div>
