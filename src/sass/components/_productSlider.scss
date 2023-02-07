@@ -5,6 +5,10 @@
   margin: 24px auto 0;
   position: relative;
 
+  @include tab-land {
+    display: none;
+  }
+
   @include mobile {
     display: none;
   }
@@ -22,7 +26,9 @@
     cursor: pointer;
     top: 50%;
     position: absolute;
-
+    @include tab-port {
+      display: none;
+    }
     &:hover {
       background: $second-color;
       color: white;

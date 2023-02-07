@@ -29,10 +29,12 @@ const Home = () => {
       <Section>
         <SectionTitle>Deal sốc tháng này</SectionTitle>
         <ProductSlider data={hotdeal}></ProductSlider>
+        <ProductList data={hotdeal}></ProductList>
       </Section>
       <Section>
         <SectionTitle>Sản phẩm mới</SectionTitle>{" "}
         <ProductSlider data={newproduct}></ProductSlider>
+        <ProductList data={newproduct}></ProductList>
       </Section>
       <Section>
         <SectionBody>

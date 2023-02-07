@@ -112,7 +112,7 @@ const Footer = () => {
             </div>
             <div className="footer__content__left__row">
               <ul>
-                <div className="footer__item">
+                <div className="footer__item first">
                   <b>Thời gian làm việc:</b> Thứ 2 ~ Thứ 6 09:00 ~ 17:00 (trừ
                   Thứ 7, Chủ Nhật và ngày lễ)
                 </div>
