@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
-import Title from "../components/Title";
 import { COLORS } from "../constants.jsx";
 import { Breadcrumb, Select } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
@@ -10,7 +9,6 @@ import Row from "react-bootstrap/Row";
 import { useCallback, useEffect, useState } from "react";
 import Category from "../components/Category";
 import { useParams } from "react-router-dom";
-import categoryList from "../assets/data/category";
 
 const Container = styled.div``;
 const Body = styled.div`
@@ -97,7 +95,9 @@ const ProductList = (props) => {
             <Breadcrumb.Item>Deal sốc</Breadcrumb.Item>
           </Breadcrumb>
         </BreadcrumbContainer>
-        <Title value="Deal sốc" />
+        <div className="title">
+          <span>Deal Sốc</span>
+        </div>
         <Line />
         <Content>
           <CategorySide>

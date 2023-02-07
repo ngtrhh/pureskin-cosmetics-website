@@ -15,32 +15,44 @@ const Home = () => {
 
   return (
     <Helmet title="Trang chủ">
+      {/* Slider */}
       <HomeSlider data={sliderData} />
+      {/* End slider */}
+      {/* Account section */}
       <Section>
         <SectionBody>
           <Account />
         </SectionBody>
       </Section>
+      {/* End account section */}
+      {/* Suggest product section */}
       <Section>
         <SectionTitle>Gợi ý cho bạn</SectionTitle>
         <ProductSlider data={suggest}></ProductSlider>
         <ProductList data={suggest}></ProductList>
       </Section>
+      {/* End suggest product section */}
+      {/* Hot deal section */}
       <Section>
         <SectionTitle>Deal sốc tháng này</SectionTitle>
         <ProductSlider data={hotdeal}></ProductSlider>
         <ProductList data={hotdeal}></ProductList>
       </Section>
+      {/* End hot deal section */}
+      {/* New product section */}
       <Section>
         <SectionTitle>Sản phẩm mới</SectionTitle>{" "}
         <ProductSlider data={newproduct}></ProductSlider>
         <ProductList data={newproduct}></ProductList>
       </Section>
+      {/* End new product section */}
+      {/* Policy section */}
       <Section>
         <SectionBody>
           <Policy />
         </SectionBody>
-      </Section>
+      </Section>{" "}
+      {/* End policy section */}
     </Helmet>
   );
 };

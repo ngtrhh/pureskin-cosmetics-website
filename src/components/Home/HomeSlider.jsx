@@ -67,11 +67,7 @@ const HomeSlider = (props) => {
     <div className="home-slider">
       <Slider {...settings}>
         {props.data.map((item) => (
-          <img
-            key={item.id}
-            src={item.img}
-            style={{ width: "100%", height: "fit-content" }}
-          />
+          <img key={item.id} src={item.img} />
         ))}
       </Slider>
     </div>

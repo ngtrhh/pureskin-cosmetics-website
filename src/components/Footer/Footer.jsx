@@ -127,10 +127,7 @@ const Footer = () => {
                     className="input"
                     placeholder="Đăng ký Email để nhận thông tin ưu đãi!"
                   />
-                  <Button
-                    type="primary"
-                    style={{ margin: "12px 0px", backgroundColor: "#5A4C9F" }}
-                  >
+                  <Button type="primary" className="footer__content__left__btn">
                     Đăng ký
                   </Button>
                 </Input.Group>
@@ -145,28 +142,22 @@ const Footer = () => {
               <div className="footer__content__right__icon__item">
                 <FacebookIcon size={48} />
               </div>
-              <div
-                className="footer__content__right__icon__item"
-                style={{ color: "white", backgroundColor: "#F00073" }}
-              >
+              <div className="footer__content__right__icon__item instagram">
                 <InstagramIcon size={28} />
               </div>
-              <div
-                className="footer__content__right__icon__item"
-                style={{ backgroundColor: "white" }}
-              >
+              <div className="footer__content__right__icon__item">
                 <GitHubIcon size={44} />
               </div>
             </div>
             <p>
               <b>CÔNG TY TNHH PURESKIN VIỆT NAM </b>
             </p>
-            <p style={{ marginTop: "12px" }}>
+            <p id="address">
               123, Đường số 6, Khu phố Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh,
               Việt Nam.
             </p>
             <div id="logoSale">
-              <img style={{ width: "40%" }} src={logoSale} alt="" />
+              <img src={logoSale} alt="" />
             </div>
           </div>
         </div>

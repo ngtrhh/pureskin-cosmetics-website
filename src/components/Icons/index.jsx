@@ -15,6 +15,8 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import { GitHub, Instagram } from "@mui/icons-material";
 import { IoClose, IoBookmarkSharp } from "react-icons/io5";
 import { MdSupportAgent } from "react-icons/md";
+import { HomeOutlined } from "@ant-design/icons";
+import { FcGoogle } from "react-icons/fc";
 
 const CartIcon = () => {
   return <BsCart2 size={28} />;
@@ -60,6 +62,10 @@ const InstagramIcon = (props) => {
   return <Instagram sx={{ fontSize: props.size }} />;
 };
 
+const GoogleIcon = (props) => {
+  return <FcGoogle size={props.size} />;
+};
+
 const GitHubIcon = (props) => {
   return <GitHub sx={{ fontSize: props.size }} />;
 };
@@ -92,6 +98,10 @@ const BookmarkIcon = () => {
   return <IoBookmarkSharp size={72} />;
 };
 
+const HomeIcon = () => {
+  return <HomeOutlined />;
+};
+
 export {
   CartIcon,
   SearchIcon,
@@ -104,6 +114,7 @@ export {
   CloseIcon,
   FacebookIcon,
   InstagramIcon,
+  GoogleIcon,
   GitHubIcon,
   TruckIcon,
   SwapIcon,
@@ -112,4 +123,5 @@ export {
   HeartOutline,
   HeartFill,
   BookmarkIcon,
+  HomeIcon,
 };

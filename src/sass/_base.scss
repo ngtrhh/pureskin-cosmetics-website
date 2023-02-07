@@ -45,3 +45,38 @@ a {
   box-shadow: 0px 1px 6px -4px #18274b33;
   margin-top: 12px;
 }
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $highlight;
+  margin-top: 40px;
+
+  @include tab-port {
+    margin-top: 20px;
+  }
+
+  @include mobile {
+    margin-top: 10px;
+  }
+
+  span {
+    font-size: 28px;
+    font-weight: 700;
+    flex: 1;
+    text-transform: uppercase;
+
+    @include tab-port {
+      font-weight: 500;
+    }
+  }
+}
+
+.breadcrumb {
+  margin-top: 20px;
+
+  @include mobile {
+    margin-top: 4px;
+  }
+}

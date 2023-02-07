@@ -101,6 +101,11 @@
           font-weight: 600;
         }
       }
+
+      &__btn {
+        margin: 12px 0px;
+        background-color: $primary-color;
+      }
     }
 
     &__right {
@@ -126,9 +131,11 @@
       &__icon {
         @include flex(center, right);
         margin-bottom: 32px;
+
         @include mobile {
           width: 100%;
           @include flex(center, center);
+          margin: 20px 0;
         }
 
         &__item {
@@ -141,6 +148,7 @@
           border-radius: 50%;
           box-shadow: 0px 4px 4px #00000040, 0px 8px 24px 0px #18274b14;
           cursor: pointer;
+
           &:first-child {
             @include mobile {
               margin-left: 0;
@@ -151,17 +159,46 @@
 
       p {
         cursor: text;
+
         @include mobile {
           text-align: center;
           font-size: 1.3rem;
         }
       }
 
+      #address {
+        margin-top: 12px;
+        padding-left: 40px;
+
+        @include mobile {
+          margin-top: 8px;
+          padding-left: 0;
+        }
+      }
+
       #logoSale {
         margin-top: 28px;
+
         @include mobile {
           @include flex(center, center);
           margin-top: 12px;
+          width: 100%;
+        }
+
+        img {
+          width: 40%;
+
+          @include tab-land {
+            width: 50%;
+          }
+
+          @include tab-port {
+            width: 70%;
+          }
+
+          @include mobile {
+            width: 40%;
+          }
         }
       }
     }
@@ -171,11 +208,13 @@
     font-weight: 700;
     font-size: 1.7rem;
     margin-bottom: 16px;
+
     @include mobile {
       @include flex(center, left);
       color: $primary-color;
       margin-bottom: 8px;
       position: relative;
+      font-weight: 500;
     }
 
     .openIcon {
@@ -259,4 +298,9 @@
       font-size: 1.1rem;
     }
   }
+}
+
+.instagram {
+  color: white;
+  background-color: #f00073;
 }
