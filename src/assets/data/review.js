@@ -3,7 +3,7 @@ const reviews = [
     id: 1,
     user: "Nguyễn Ngọc Trinh",
     title: "Kem dưỡng",
-    comment: "Sản phẩm dùng tốt lắm chị",
+    comment: "Sản phẩm dùng tốt lắm chị!",
     star: 4.5,
     date: "Tháng 10 2022",
   },
@@ -12,7 +12,7 @@ const reviews = [
     user: "Trần Linh Nhi",
     title: "Sản phẩm xài oke",
     comment:
-      "Bao bì đẹp, chắc chắn. Chất kem mỏng nhẹ, nhanh thấm trên da, xài xong vẫn còn độ ẩm nhẹ. Sản phẩm phù hợp với da của tôi,",
+      "Bao bì đẹp, chắc chắn. Chất kem mỏng nhẹ, nhanh thấm trên da, xài xong vẫn còn độ ẩm nhẹ. Sản phẩm phù hợp với da của tôi.",
     star: 5.0,
     date: "Tháng 10 2022",
   },
@@ -21,7 +21,7 @@ const reviews = [
     user: "Lê Thị A",
     title: "Hàng Việt Nam chất lượng cao",
     comment:
-      "Đây là tuýp thứ hai tôi mua, đã có cải tiến so với đợt trước về mùi hương, đợt này không quá nồng, đặc biệt packaging sản phẩm nhìn rất đẹp, hợp mắt thị hiếu người Việt",
+      "Đây là tuýp thứ hai tôi mua, đã có cải tiến so với đợt trước về mùi hương, đợt này không quá nồng, đặc biệt packaging sản phẩm nhìn rất đẹp, hợp mắt thị hiếu người Việt.",
     star: 4.5,
     date: "Tháng 11 2022",
   },

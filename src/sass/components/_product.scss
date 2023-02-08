@@ -11,6 +11,11 @@
       width: 80%;
       margin: auto;
 
+      @include tab-land {
+        width: 100%;
+        padding: 0 20px;
+      }
+
       &__title {
         font-size: 3rem;
         font-weight: 700;
@@ -18,6 +23,12 @@
         width: 100%;
         margin-bottom: 12px;
         margin-top: 4px;
+
+        @include mobile {
+          font-size: 2.4rem;
+          text-align: center;
+          margin-top: 12px;
+        }
       }
 
       &__content {
@@ -25,6 +36,10 @@
         font-size: 1.7rem;
         text-align: justify;
         padding-bottom: 16px;
+
+        @include mobile {
+          font-size: 1.5rem;
+        }
       }
     }
   }
@@ -37,17 +52,34 @@
       width: 80%;
       margin: auto;
 
+      @include tab-land {
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      @include mobile {
+        padding: 0 10px;
+      }
+
       &__title {
         padding: 40px 0 0;
         font-size: 3rem;
         font-weight: 600;
         color: $highlight;
+
+        @include mobile {
+          font-size: 2.4rem;
+        }
       }
 
       &__overview {
-        padding: 40px 0 0;
+        padding-top: 40px;
         color: $highlight;
         position: relative;
+
+        @include mobile {
+          padding-top: 20px;
+        }
 
         &__total {
           font-size: 4rem;
@@ -83,6 +115,16 @@
           color: #fff;
           font-weight: 500;
           font-size: 1.6rem;
+
+          @include mobile {
+            position: unset;
+            width: 90%;
+            margin: 20px auto;
+            background: transparent;
+            border: 1px solid $highlight;
+            color: $highlight;
+            text-transform: uppercase;
+          }
         }
 
         &__sort {
@@ -93,6 +135,23 @@
 
           &__select {
             width: 200px;
+
+            @include mobile {
+              width: 90%;
+            }
+          }
+
+          @include mobile {
+            position: unset;
+            margin: auto;
+          }
+        }
+
+        .review-overview {
+          margin-top: 60px;
+
+          @include mobile {
+            margin-top: 20px;
           }
         }
       }
@@ -108,8 +167,20 @@
           font-weight: 450;
           color: $txt-main-color;
 
+          @include tab-land {
+            font-size: 1.5rem;
+          }
+
+          @include mobile {
+            flex-direction: column;
+          }
+
           &__user {
             flex: 2;
+
+            @include tab-port {
+              flex: 3;
+            }
 
             &__stars {
               display: flex;
@@ -117,6 +188,10 @@
               &__label {
                 @include flex(flex-end, left);
                 flex: 1;
+
+                @include tab-land {
+                  flex: 0.5;
+                }
               }
 
               &__rating {
@@ -128,6 +203,10 @@
                   li {
                     margin: 0;
                     font-size: 2rem;
+
+                    @include tab-land {
+                      font-size: 1.7rem;
+                    }
                   }
                 }
               }
@@ -145,8 +224,16 @@
               }
             }
 
-            .review {
+            .review-item {
               margin: 4px 0 12px;
+
+              &.last {
+                margin-bottom: 100px;
+
+                @include mobile {
+                  margin-bottom: 12px;
+                }
+              }
             }
           }
 
@@ -154,10 +241,22 @@
             flex: 7;
             margin-left: 40px;
 
+            @include mobile {
+              margin-left: 0;
+            }
+
             &__title {
               font-size: 3.2rem;
               color: $highlight;
               font-weight: 700;
+
+              @include tab-land {
+                font-size: 2.4rem;
+              }
+
+              @include mobile {
+                text-align: center;
+              }
             }
 
             &__comment {
@@ -178,6 +277,20 @@
     margin: 0 auto 40px;
     height: fit-content;
 
+    @include tab-land {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    @include tab-port {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include mobile {
+      padding: 0 10px;
+    }
+
     &:affter {
       content: "";
       display: block;
@@ -191,17 +304,29 @@
       align-items: center;
       justify-content: left;
 
+      @include tab-port {
+        width: 100%;
+      }
+
+      @include mobile {
+        margin-top: 20px;
+      }
+
       &__list {
-        width: 20%;
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
         display: flex;
 
+        @include tab-port {
+          flex: 1.25;
+        }
+
         &__item {
           cursor: pointer;
           width: 100%;
           margin-bottom: 20px;
+
           img {
             width: 100%;
             height: auto;
@@ -219,10 +344,13 @@
         margin-right: 72px;
         margin-left: 40px;
 
+        @include tab-port {
+          margin-right: 0px;
+        }
+
         img {
           width: 100%;
           height: auto;
-
           float: right;
         }
       }
@@ -236,10 +364,25 @@
       top: 0;
       right: 0;
 
+      @include tab-land {
+        top: 0;
+        right: 20px;
+        margin-top: 12px;
+      }
+
+      @include tab-port {
+        width: 100%;
+        position: unset;
+      }
+
       &__title {
         font-weight: 700;
         font-size: 28px;
         color: $highlight;
+
+        @include mobile {
+          font-size: 2.4rem;
+        }
       }
 
       &__status {
@@ -260,12 +403,25 @@
         padding-inline-start: 0;
         list-style-type: none;
 
+        @include tab-port {
+          justify-content: space-between;
+        }
+
+        @include mobile {
+          flex-direction: column;
+          margin-top: 0px;
+        }
+
         li {
           margin-right: 40px;
           align-items: flex-end;
           font-weight: 500;
           font-size: 15px;
           display: flex;
+
+          @include tab-port {
+            flex: 1;
+          }
 
           a {
             cursor: pointer;
@@ -286,6 +442,10 @@
         @include flex(center, left);
         margin-block-start: 32px;
 
+        @include mobile {
+          margin-block-start: 0;
+        }
+
         div {
           margin-inline-end: 12px;
           @include flex(center, center);
@@ -301,6 +461,10 @@
           font-weight: 700;
           font-size: 28px;
           position: primary;
+
+          @include mobile {
+            font-size: 2rem;
+          }
         }
 
         &__origin {
@@ -340,6 +504,11 @@
         display: flex;
         align-items: center;
 
+        @include mobile {
+          flex-direction: column;
+          margin-block-start: 8px;
+        }
+
         &__quantity {
           flex: 2;
           @include flex(center, space-between);
@@ -367,6 +536,15 @@
           @include flex(center, left);
           padding-left: 10%;
 
+          @include tab-port {
+            @include flex(center, center);
+          }
+
+          @include mobile {
+            padding-left: 0;
+            margin-top: 8px;
+          }
+
           &__button {
             text-transform: uppercase;
             display: flex;
@@ -389,6 +567,10 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 80px;
+
+        @include tab-land {
+          display: none;
+        }
 
         &__item {
           width: 45%;

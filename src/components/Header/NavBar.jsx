@@ -3,7 +3,7 @@ import categoryList from "../../assets/data/category";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 
-import { Badge, Menu, MenuItem } from "@mui/material";
+import { Badge } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Dropdown } from "antd";
 import {
@@ -15,7 +15,6 @@ import {
   DownIcon,
   UpIcon,
 } from "../Icons/index";
-import Category from "../ProductList/Category";
 
 //item in dropbox of antd
 const items = [
@@ -37,26 +36,7 @@ const items = [
   },
 ];
 
-const category = [
-  {
-    key: "3",
-    label: (
-      <Link to="/login" className="navBar__menu__item__mobile__dropdown">
-        Đăng nhập
-      </Link>
-    ),
-  },
-  {
-    key: "4",
-    label: (
-      <Link to="/register" className="navBar__menu__item__mobile__dropdown">
-        Đăng ký
-      </Link>
-    ),
-  },
-];
-
-const NavBar = () => {
+const NavBar = (props) => {
   //open menu in mobile serivce and tablet portant
   const menuRef = useRef();
   const menuToggle = () => {
@@ -85,7 +65,7 @@ const NavBar = () => {
       window.removeEventListener("scroll", null);
     };
   }, []);
-
+  //to know width device
   const [mobile, setMobile] = useState(false);
   const windowWidth = useRef(window.innerWidth);
   useEffect(() => {
@@ -95,6 +75,10 @@ const NavBar = () => {
       setMobile(false);
     }
   }, []);
+
+  const onClick = (e) => {
+    props.category(e);
+  };
 
   //style for bagde of mui
   const shapeStyles = { bgcolor: "transparent", width: 40, height: 40 };
@@ -274,7 +258,13 @@ const NavBar = () => {
                   <ul className="navBar__left__menu__sub" ref={subRef}>
                     {categoryList.getAllCategories().map((item, index) => (
                       <li className="navBar__left__menu__item" key={index}>
-                        <span>{item.display}</span>
+                        <Link
+                          key={item.id}
+                          to={`/product-list/${item.categorySlug}`}
+                          onClick={() => onClick(item.categorySlug)}
+                        >
+                          <span>{item.display}</span>
+                        </Link>
                       </li>
                     ))}
                   </ul>

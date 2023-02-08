@@ -87,7 +87,13 @@ a {
   margin: 20px auto 0;
   width: 80%;
 
+  @include tab-land {
+    width: 100%;
+    padding: 0 20px;
+  }
+
   @include mobile {
     margin: 4px 10px 0;
+    padding: 0;
   }
 }

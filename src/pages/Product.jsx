@@ -75,7 +75,6 @@ const Product = () => {
                 <div className="product__review__container__overview__rating">
                   <Rate allowHalf disabled defaultValue={product.stars} />
                 </div>
-                <hr className="line" style={{ marginTop: "60px" }} />
                 <div className="product__review__container__overview__button">
                   Viết đánh giá
                 </div>
@@ -92,6 +91,7 @@ const Product = () => {
                     ]}
                   ></Select>
                 </div>
+                <hr className="line review-overview" />
               </div>
               <div className="product__review__container__list">
                 {review.map((item) => (
@@ -108,16 +108,13 @@ const Product = () => {
                           <Rate allowHalf disabled defaultValue={item.star} />
                         </div>
                       </div>
-                      <hr className="line review" />
+                      <hr className="line review-item" />
                       <div className="product__review__container__list__item__user__name">
-                        {item.user} <hr className="line review" />
+                        {item.user} <hr className="line review-item" />
                       </div>
                       <div className="product__review__container__list__item__user__date">
                         Ngày đăng: <span>{item.date}</span>{" "}
-                        <hr
-                          className="line review"
-                          style={{ marginBottom: "100px" }}
-                        />
+                        <hr className="line review-item last" />
                       </div>
                     </div>
                     <div className="product__review__container__list__item__content">
