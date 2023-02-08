@@ -1,0 +1,412 @@
+.product {
+  width: 100%;
+  margin: auto;
+
+  &__description {
+    width: 100%;
+    background-color: #ffffff;
+    height: fit-content;
+
+    &__container {
+      width: 80%;
+      margin: auto;
+
+      &__title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $highlight;
+        width: 100%;
+        margin-bottom: 12px;
+        margin-top: 4px;
+      }
+
+      &__content {
+        color: $txt-second-color;
+        font-size: 1.7rem;
+        text-align: justify;
+        padding-bottom: 16px;
+      }
+    }
+  }
+
+  &__review {
+    width: 100%;
+    background-color: #fff8fc;
+
+    &__container {
+      width: 80%;
+      margin: auto;
+
+      &__title {
+        padding: 40px 0 0;
+        font-size: 3rem;
+        font-weight: 600;
+        color: $highlight;
+      }
+
+      &__overview {
+        padding: 40px 0 0;
+        color: $highlight;
+        position: relative;
+
+        &__total {
+          font-size: 4rem;
+          font-weight: 700;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        &__rating {
+          width: 100%;
+          @include flex(center, center);
+
+          ul {
+            color: $highlight;
+            li {
+              margin: 0;
+              font-size: 3rem;
+            }
+          }
+        }
+
+        &__button {
+          position: absolute;
+          @include flex(center, center);
+          width: 200px;
+          height: 48px;
+          top: 50px;
+          right: 0;
+          position: absolute;
+          background: $highlight;
+          border-radius: 4px;
+          color: #fff;
+          font-weight: 500;
+          font-size: 1.6rem;
+        }
+
+        &__sort {
+          position: absolute;
+          @include flex(center, center);
+          bottom: 28px;
+          right: 0;
+
+          &__select {
+            width: 200px;
+          }
+        }
+      }
+
+      &__list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &__item {
+          display: flex;
+          padding: 40px 0 0;
+          font-weight: 450;
+          color: $txt-main-color;
+
+          &__user {
+            flex: 2;
+
+            &__stars {
+              display: flex;
+
+              &__label {
+                @include flex(flex-end, left);
+                flex: 1;
+              }
+
+              &__rating {
+                @include flex(center, right);
+                flex: 1;
+
+                ul {
+                  color: $highlight;
+                  li {
+                    margin: 0;
+                    font-size: 2rem;
+                  }
+                }
+              }
+            }
+
+            &__name {
+              color: $primary-color;
+              cursor: pointer;
+            }
+
+            &__date {
+              span {
+                color: $primary-color;
+                font-weight: 600;
+              }
+            }
+
+            .review {
+              margin: 4px 0 12px;
+            }
+          }
+
+          &__content {
+            flex: 7;
+            margin-left: 40px;
+
+            &__title {
+              font-size: 3.2rem;
+              color: $highlight;
+              font-weight: 700;
+            }
+
+            &__comment {
+              font-weight: 400;
+              text-align: justify;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.product-view {
+  &__top {
+    width: 80%;
+    position: relative;
+    margin: 0 auto 40px;
+    height: fit-content;
+
+    &:affter {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    &__visual {
+      width: 55%;
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+
+      &__list {
+        width: 20%;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        display: flex;
+
+        &__item {
+          cursor: pointer;
+          width: 100%;
+          margin-bottom: 20px;
+          img {
+            width: 100%;
+            height: auto;
+            border: 1.5px solid $lightgrey;
+          }
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+
+      &__main {
+        width: 50%;
+        flex: 6;
+        margin-right: 72px;
+        margin-left: 40px;
+
+        img {
+          width: 100%;
+          height: auto;
+
+          float: right;
+        }
+      }
+    }
+
+    &__info {
+      width: 45%;
+      float: right;
+      color: $txt-main-color;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &__title {
+        font-weight: 700;
+        font-size: 28px;
+        color: $highlight;
+      }
+
+      &__status {
+        font-weight: 500;
+        font-size: 13px;
+        margin-top: 8px;
+
+        span {
+          font-weight: 600;
+          text-transform: uppercase;
+          color: $primary-color;
+        }
+      }
+
+      &__review {
+        margin-top: 8px;
+        display: flex;
+        padding-inline-start: 0;
+        list-style-type: none;
+
+        li {
+          margin-right: 40px;
+          align-items: flex-end;
+          font-weight: 500;
+          font-size: 15px;
+          display: flex;
+
+          a {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+
+          ul {
+            color: $highlight;
+            li {
+              margin: 0;
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+
+      &__price {
+        @include flex(center, left);
+        margin-block-start: 32px;
+
+        div {
+          margin-inline-end: 12px;
+          @include flex(center, center);
+          height: 100%;
+
+          &:last-child {
+            margin-inline-start: 12px;
+          }
+        }
+
+        &__sale {
+          color: $primary-color;
+          font-weight: 700;
+          font-size: 28px;
+          position: primary;
+        }
+
+        &__origin {
+          font-weight: 500;
+          font-size: 15px;
+          color: black;
+          text-decoration-line: line-through;
+        }
+
+        &__percent {
+          font-weight: 700;
+          font-size: 1.5rem;
+          padding: 4px 12px;
+          background-color: $second-color;
+          border-radius: 20px;
+        }
+
+        &__wishlist {
+          color: $primary-color;
+          cursor: pointer;
+        }
+      }
+
+      &__saving {
+        font-size: 1.5rem;
+        color: black;
+
+        span {
+          font-style: italic;
+          color: $primary-color;
+          font-weight: 500;
+        }
+      }
+
+      &__control {
+        margin-block-start: 32px;
+        display: flex;
+        align-items: center;
+
+        &__quantity {
+          flex: 2;
+          @include flex(center, space-between);
+
+          &__button {
+            cursor: pointer;
+            transition: 0.4s all;
+            border-radius: 50%;
+            @include flex(center, center);
+
+            &:hover {
+              color: $primary-color;
+              background-color: #f7f4f4;
+            }
+          }
+
+          &__input {
+            width: 44px;
+            font-size: 20px;
+          }
+        }
+
+        &__add-cart {
+          flex: 8;
+          @include flex(center, left);
+          padding-left: 10%;
+
+          &__button {
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 240px;
+            height: 44px;
+            color: #ffffff;
+            background: $primary-color;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 100px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__policy {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 80px;
+
+        &__item {
+          width: 45%;
+          margin-left: 20px;
+          margin-bottom: 12px;
+          @include flex(center, left);
+
+          &__icon {
+            @include flex(center, left);
+            margin-inline-end: 20px;
+          }
+
+          &__content {
+            color: $txt-second-color;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

@@ -84,7 +84,8 @@ a {
 }
 
 .breadcrumb {
-  margin: 20px 20px 0;
+  margin: 20px auto 0;
+  width: 80%;
 
   @include mobile {
     margin: 4px 10px 0;

@@ -1,6 +1,6 @@
 .product-slider {
   width: 72%;
-  height: 440px;
+  height: fit-content;
   padding: 0px 40px;
   margin: 24px auto 0;
   position: relative;
@@ -36,10 +36,10 @@
   }
 
   .next {
-    right: -8rem;
+    right: -10rem;
   }
 
   .prev {
-    left: -8rem;
+    left: -10rem;
   }
 }

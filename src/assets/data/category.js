@@ -33,13 +33,13 @@ const categories = [
 const getAllCategories = () => categories;
 
 const getCategoryBySlug = (cate) =>
-categoryData
+  categoryData
     .getAllCategories()
     .find((element) => element.categorySlug === cate);
 
 const categoryData = {
   getAllCategories,
-  getCategoryBySlug
+  getCategoryBySlug,
 };
 
 export default categoryData;

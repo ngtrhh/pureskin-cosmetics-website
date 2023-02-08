@@ -19,17 +19,17 @@ const Register = () => {
 
   return (
     <Helmet title="Đăng ký">
+      {/* Breadcrumb */}
+      <div className="breadcrumb" style={{ visibility: "hidden" }}>
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <HomeIcon />
+            <a href="/">Trang chủ</a>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
+      {/* End breadcrumb */}
       <div className="register">
-        {/* Breadcrumb */}
-        <div className="breadcrumb" style={{ visibility: "hidden" }}>
-          <Breadcrumb>
-            <Breadcrumb.Item>
-              <HomeIcon />
-              <a href="/">Trang chủ</a>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
-        {/* End breadcrumb */}
         {/* Title */}
         <div className="title">
           <span>Đăng ký</span>

@@ -2,7 +2,7 @@ import Helmet from "../components/Helmet";
 import HomeSlider from "../components/Home/HomeSlider";
 import Account from "../components/Home/Account";
 import Policy from "../components/Home/Policy";
-import ProductList from "../components/Home/ProductList";
+import ProductListResponsive from "../components/ProductListMobile";
 import ProductSlider from "../components/ProductSlider";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 
@@ -29,22 +29,28 @@ const Home = () => {
       {/* Suggest product section */}
       <Section>
         <SectionTitle>Gợi ý cho bạn</SectionTitle>
-        <ProductSlider data={suggest}></ProductSlider>
-        <ProductList data={suggest}></ProductList>
+        <SectionBody>
+          <ProductSlider data={suggest}></ProductSlider>
+          <ProductListResponsive data={suggest}></ProductListResponsive>{" "}
+        </SectionBody>
       </Section>
       {/* End suggest product section */}
       {/* Hot deal section */}
       <Section>
         <SectionTitle>Deal sốc tháng này</SectionTitle>
-        <ProductSlider data={hotdeal}></ProductSlider>
-        <ProductList data={hotdeal}></ProductList>
+        <SectionBody>
+          <ProductSlider data={hotdeal}></ProductSlider>
+          <ProductListResponsive data={hotdeal}></ProductListResponsive>
+        </SectionBody>
       </Section>
       {/* End hot deal section */}
       {/* New product section */}
       <Section>
-        <SectionTitle>Sản phẩm mới</SectionTitle>{" "}
-        <ProductSlider data={newproduct}></ProductSlider>
-        <ProductList data={newproduct}></ProductList>
+        <SectionTitle>Sản phẩm mới</SectionTitle>
+        <SectionBody>
+          <ProductSlider data={newproduct}></ProductSlider>
+          <ProductListResponsive data={newproduct}></ProductListResponsive>{" "}
+        </SectionBody>
       </Section>
       {/* End new product section */}
       {/* Policy section */}
@@ -52,7 +58,7 @@ const Home = () => {
         <SectionBody>
           <Policy />
         </SectionBody>
-      </Section>{" "}
+      </Section>
       {/* End policy section */}
     </Helmet>
   );

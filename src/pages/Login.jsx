@@ -13,17 +13,17 @@ import {
 const Login = () => {
   return (
     <Helmet title="Đăng nhập">
+      {/* Breadcrumb */}
+      <div className="breadcrumb" style={{ visibility: "hidden" }}>
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <HomeIcon />
+            <a href="/">Trang chủ</a>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
+      {/* End breadcrumb */}
       <div className="login">
-        {/* Breadcrumb */}
-        <div className="breadcrumb" style={{ visibility: "hidden" }}>
-          <Breadcrumb>
-            <Breadcrumb.Item>
-              <HomeIcon />
-              <a href="/">Trang chủ</a>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
-        {/* End breadcrumb */}
         {/* Title */}
         <div className="title">
           <span>Đăng nhập</span>

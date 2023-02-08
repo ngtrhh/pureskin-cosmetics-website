@@ -1,14 +1,15 @@
 import Helmet from "../components/Helmet";
-import { Breadcrumb, Select } from "antd";
-import { Link } from "react-router-dom";
-import productData from "../assets/data/product";
-import categoryData from "../assets/data/category";
+import Category from "../components/ProductList/Category";
 import Card from "../components/ProductList/Card";
+
 import Row from "react-bootstrap/Row";
 import { useCallback, useEffect, useState } from "react";
-import Category from "../components/ProductList/Category";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Breadcrumb, Select } from "antd";
+
 import { HomeIcon } from "../components/Icons/index";
+import productData from "../assets/data/product";
+import categoryData from "../assets/data/category";
 
 const ProductList = () => {
   let slug = useParams().categorySlug;
@@ -48,28 +49,28 @@ const ProductList = () => {
 
   return (
     <Helmet title={category.display}>
+      {/* Breadcrumb */}
+      <div className="breadcrumb">
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <HomeIcon />
+            <Link to="/">Trang chủ</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link
+              to="/product-list/deal-soc"
+              onClick={() => {
+                setCategory("deal-soc");
+              }}
+            >
+              Sản phẩm
+            </Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>{category.display}</Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
+      {/* End breadcrumb */}
       <div className="product-list">
-        {/* Breadcrumb */}
-        <div className="breadcrumb">
-          <Breadcrumb>
-            <Breadcrumb.Item>
-              <HomeIcon />
-              <Link to="/">Trang chủ</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link
-                to="/product-list/deal-soc"
-                onClick={() => {
-                  setCategory("deal-soc");
-                }}
-              >
-                Sản phẩm
-              </Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>{category.display}</Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
-        {/* End breadcrumb */}
         {/* Title */}
         <div className="title">
           <span>{category.display}</span>
@@ -88,9 +89,9 @@ const ProductList = () => {
                 size="large"
                 options={[
                   { value: "1", label: "Hiển thị theo mặc định" },
-                  { value: "3", label: "Hiển thị theo sản phẩm mới" },
-                  { value: "4", label: "Hiển thị theo giá cao nhất" },
-                  { value: "5", label: "Hiển thị theo giá thấp nhất" },
+                  { value: "2", label: "Hiển thị theo sản phẩm mới" },
+                  { value: "3", label: "Hiển thị theo giá cao nhất" },
+                  { value: "4", label: "Hiển thị theo giá thấp nhất" },
                 ]}
               ></Select>
             </div>

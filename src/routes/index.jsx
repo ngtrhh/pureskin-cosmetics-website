@@ -9,7 +9,7 @@ const publicRoutes = [
   { path: "/login", component: Login },
   { path: "/register", component: Register },
   { path: "/product-list/:categorySlug", component: ProductList },
-  { path: "/product/:slug", component: Product },
+  { path: "/product-list/:categorySlug/:slug", component: Product },
 ];
 
 export { publicRoutes };
