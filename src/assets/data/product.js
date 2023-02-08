@@ -327,6 +327,9 @@ const products = [
 
 const getAllProducts = () => products;
 
+const getProductById = (id) =>
+  productData.getAllProducts().find((element) => element.id === id);
+
 const getProductBySlug = (slug) =>
   productData.getAllProducts().find((element) => element.slug === slug);
 
@@ -361,9 +364,10 @@ const getProducts = (count) => {
 
 const productData = {
   getAllProducts,
+  getProductById,
   getProductBySlug,
-  getProducts,
   getProductsByCateSlug,
+  getProducts,
 };
 
 export default productData;

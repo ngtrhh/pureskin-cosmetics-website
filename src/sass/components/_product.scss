@@ -103,7 +103,6 @@
         }
 
         &__button {
-          position: absolute;
           @include flex(center, center);
           width: 200px;
           height: 48px;

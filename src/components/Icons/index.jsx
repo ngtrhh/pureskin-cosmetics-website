@@ -8,6 +8,7 @@ import {
   BsTruck,
   BsHeart,
   BsHeartFill,
+  BsArrowLeft,
 } from "react-icons/bs";
 import {
   AiOutlineMenu,
@@ -47,6 +48,9 @@ const LeftIcon = (props) => {
 };
 const RightIcon = (props) => {
   return <BsChevronRight size={props.size} />;
+};
+const BackIcon = () => {
+  return <BsArrowLeft size={28} />;
 };
 const CloseIcon = () => {
   return <IoClose size={28} />;
@@ -105,6 +109,7 @@ export {
   UpIcon,
   LeftIcon,
   RightIcon,
+  BackIcon,
   CloseIcon,
   FacebookIcon,
   InstagramIcon,

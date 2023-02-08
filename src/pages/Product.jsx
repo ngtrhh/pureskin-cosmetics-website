@@ -10,15 +10,17 @@ import { HomeIcon } from "../components/Icons/index";
 
 import productData from "../assets/data/product";
 import reviewData from "../assets/data/review";
+import categoryData from "../assets/data/category";
 
 const Product = () => {
   const { slug } = useParams();
   const product = productData.getProductBySlug(slug);
+  const category = categoryData.getCategoryBySlug(product.categorySlug);
   const relative = productData.getAllProducts(8);
   const reviewCount = reviewData.count();
   const avgStar = reviewData.average();
   const review = reviewData.getAllReviews();
-  // console.log(slug, product);
+  // console.log(slug, category);
   return (
     <Helmet title={product.title}>
       <div className="product">
@@ -32,7 +34,9 @@ const Product = () => {
               <Link to="/product-list/deal-soc">Sản phẩm</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={`/product-list/${product.categorySlug}`}>Dưỡng da</Link>
+              <Link to={`/product-list/${product.categorySlug}`}>
+                {category.display}
+              </Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>{product.title}</Breadcrumb.Item>
           </Breadcrumb>
