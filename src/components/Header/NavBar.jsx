@@ -73,6 +73,7 @@ const NavBar = (props) => {
       setMobile(true);
     } else {
       setMobile(false);
+      console.log("mo");
     }
   }, []);
 

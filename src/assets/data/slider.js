@@ -1,19 +1,24 @@
+import slider1 from "../images/Slider1.png"
+import slider2 from "../images/Slider2.png"
+import slider3 from "../images/Slider3.png"
+import slider4 from "../images/Slider4.png"
+
 const sliderData = [
   {
     id: 1,
-    img: "https://i.ibb.co/p3CN6jP/Slider3.png",
+    img: slider3,
   },
   {
     id: 2,
-    img: "https://i.ibb.co/PmbwWwP/Slider4.png",
+    img: slider4,
   },
   {
     id: 3,
-    img: "https://i.ibb.co/fnFwVzs/Slider2.png",
+    img: slider2,
   },
   {
     id: 4,
-    img: "https://i.ibb.co/cxHN7K8/Slider1.png",
+    img: slider1,
   },
 ];
 
