@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { CloseIcon, PlusIcon, MinusIcon } from "../components/Icons/index";
+import { CloseIcon, PlusIcon, MinusIcon } from "../Icons/index";
 import { Input } from "antd";
-import { display } from "@mui/system";
 
 const CartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(1);

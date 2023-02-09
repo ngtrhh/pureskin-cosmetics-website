@@ -240,7 +240,9 @@ const NavBar = (props) => {
                 <ul className="navBar__left__menu">
                   <li className="navBar__left__menu__item">
                     <hr className="line" />
-                    <span>Trang chủ</span>
+                    <Link to="/">
+                      <span>Trang chủ</span>
+                    </Link>
                   </li>
                   <li className="navBar__left__menu__item">
                     <hr className="line" />
@@ -270,15 +272,20 @@ const NavBar = (props) => {
                   </ul>
                   <li className="navBar__left__menu__item">
                     <hr className="line" />
+                    <Link to="/about"></Link>
                     <span>Về Pureskin</span>
                   </li>
                   <li className="navBar__left__menu__item">
                     <hr className="line" />
-                    <span>Liên hệ</span>
+                    <Link to="/contact">
+                      <span>Liên hệ</span>
+                    </Link>
                   </li>
                   <li className="navBar__left__menu__item">
                     <hr className="line" />
-                    <span>Tài khoản</span>
+                    <Link to="/login">
+                      <span>Tài khoản</span>
+                    </Link>
                   </li>
                   <li className="navBar__left__menu__item">
                     <hr className="line" />

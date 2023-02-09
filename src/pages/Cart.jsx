@@ -1,8 +1,8 @@
 import Helmet from "../components/Helmet";
 import { Link, useParams } from "react-router-dom";
-import { Breadcrumb, Input } from "antd";
+import { Breadcrumb, Input, Button } from "antd";
 import { HomeIcon, BackIcon } from "../components/Icons/index";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/Cart/CartItem";
 import productData from "../assets/data/product";
 const Cart = () => {
   const list = productData.getProducts(4);
@@ -26,7 +26,7 @@ const Cart = () => {
         <Link to="/">
           <div className="cart__back">
             <BackIcon /> <span>Tiếp tục chọn sản phẩm</span>
-          </div>{" "}
+          </div>
         </Link>
         <div className="cart__total-item">
           Có<b>4</b>sản phẩm trong giỏ hàng
@@ -45,19 +45,31 @@ const Cart = () => {
               <div className="cart__payment__info__content">200.000 VNĐ</div>
             </div>
             <hr className="line payment" />
-            <div className="cart__payment__info vourcher">
+            <div className="cart__payment__info hide">
               <div className="cart__payment__info__label">Ưu đãi</div>
               <div className="cart__payment__info__content">200.000 VNĐ</div>
             </div>
-            <hr className="line payment" />
+            <hr className="line payment hide" />
             <div className="cart__payment__info">
-              <Input
-                className="cart__payment__info__input"
-                placeholder="Nhập mã giảm giá tại đây"
-                size="large"
-              />
+              <Input.Group compact>
+                <Input
+                  className="cart__payment__info__input"
+                  style={{ width: "calc(100% - 92px)" }}
+                  placeholder="Nhập mã giảm giá tại đây"
+                  size="large"
+                />
+                <Button
+                  type="primary"
+                  size="large"
+                  className="cart__payment__info__submit"
+                >
+                  Sử dụng
+                </Button>
+              </Input.Group>
             </div>
-            <div className="cart__payment__button">Thanh toán</div>
+            <Link to="/checkout">
+              <div className="cart__payment__button">Thanh toán</div>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Helmet from "../components/Helmet";
 import ProductListResponsive from "../components/ProductListMobile";
 import ProductSlider from "../components/ProductSlider";
-import ProductView from "../components/ProductView";
+import ProductView from "../components/Product/ProductView";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 
 import { Link, useParams } from "react-router-dom";

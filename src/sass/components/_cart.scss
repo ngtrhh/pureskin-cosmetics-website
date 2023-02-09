@@ -18,6 +18,10 @@
     @include tab-port {
       flex-direction: column;
     }
+
+    @include mobile {
+      padding: 0 10px;
+    }
   }
 
   &__back {
@@ -28,13 +32,7 @@
     position: relative;
 
     @include mobile {
-      display: none;
-    }
-
-    &:hover {
       color: $primary-color;
-      transform: scale(1.1);
-      transition: transform 0.3s ease;
     }
 
     span {
@@ -54,6 +52,7 @@
       margin: 0 4px;
     }
   }
+
   &__list {
     flex: 7;
     flex-direction: column;
@@ -118,12 +117,11 @@
       }
 
       &__input {
-        width: 100%;
         background-color: #f7f7f7;
       }
 
-      &.vourcher {
-        // display: none;
+      &__submit {
+        background-color: $primary-color;
       }
     }
 
@@ -140,11 +138,8 @@
       margin: 28px 0;
       text-transform: uppercase;
     }
-
-    .payment {
-      margin-top: 4px;
-    }
   }
+
   .underline {
     width: 5%;
     margin: auto;
@@ -164,6 +159,7 @@
       width: 20%;
     }
   }
+
   &__item {
     width: 100%;
 
@@ -213,7 +209,6 @@
 
       &__quantity {
         @include flex(flex-end, space-between);
-        background-color: aliceblue;
 
         &__button {
           @include flex(center, center);
@@ -274,4 +269,42 @@
       }
     }
   }
+
+  &__checkout {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin-bottom: 12px;
+    background-color: #fff;
+
+    &__img {
+      height: 100%;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    &__title {
+      font-weight: 500;
+      margin: 12px 8px;
+      flex: 3;
+      text-transform: uppercase;
+    }
+
+    &__sub {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin: 12px 8px;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.payment {
+  margin-top: 4px;
 }

@@ -1,16 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { Rate } from "antd";
-import {
-  HeartOutline,
-  HeartFill,
-  PlusIcon,
-  MinusIcon,
-} from "../components/Icons/index";
+import { HeartOutline, HeartFill, PlusIcon, MinusIcon } from "../Icons/index";
 import { Input } from "antd";
 // import { withRouter } from "react-router";
 // import { useDispatch } from "react-redux";
-import policyData from "../assets/data/policy";
+import policyData from "../../assets/data/policy";
 // import { addItem } from '../redux/shopping-cart/cartItemsSlide'
 // import { remove } from '../redux/product-modal/productModalSlice'
 

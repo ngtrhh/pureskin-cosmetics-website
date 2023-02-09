@@ -20,10 +20,12 @@ import {
 import { RiShieldStarLine } from "react-icons/ri";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import { GitHub, Instagram } from "@mui/icons-material";
-import { IoClose, IoBookmarkSharp } from "react-icons/io5";
+import { IoClose, IoBookmarkSharp, IoLocationOutline } from "react-icons/io5";
 import { MdSupportAgent } from "react-icons/md";
 import { HomeOutlined } from "@ant-design/icons";
 import { FcGoogle } from "react-icons/fc";
+import { RxMobile } from "react-icons/rx";
+import { TfiEmail } from "react-icons/tfi";
 
 const CartIcon = () => {
   return <BsCart2 size={28} />;
@@ -91,13 +93,20 @@ const BookmarkIcon = () => {
 const HomeIcon = () => {
   return <HomeOutlined />;
 };
-
 const PlusIcon = () => {
   return <AiOutlinePlus size={28} />;
 };
-
 const MinusIcon = () => {
   return <AiOutlineMinus size={28} />;
+};
+const LocationIcon = () => {
+  return <IoLocationOutline size={24} />;
+};
+const MobileIcon = () => {
+  return <RxMobile size={24} />;
+};
+const EmailIcon = () => {
+  return <TfiEmail size={22} />;
 };
 
 export {
@@ -125,4 +134,7 @@ export {
   HomeIcon,
   PlusIcon,
   MinusIcon,
+  LocationIcon,
+  MobileIcon,
+  EmailIcon,
 };

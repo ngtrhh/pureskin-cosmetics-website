@@ -10,7 +10,7 @@ const Register = () => {
     console.log(date, dateString);
   };
   const handleChange = (value) => {
-    console.log(`selected ${value}`);
+    // console.log(`selected ${value}`);
   };
 
   function Required() {
